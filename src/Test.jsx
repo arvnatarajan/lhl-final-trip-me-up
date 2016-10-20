@@ -1,4 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
+// import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+// import FlatButton from 'material-ui/FlatButton';
+// import Badge from 'material-ui/Badge';
+// import Toggle from 'material-ui/Toggle';
+
 
 const Test = (props) => {
   console.log('Rendering <Message />');

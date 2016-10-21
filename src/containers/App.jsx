@@ -1,14 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import CardExampleWithAvatar from './CardExampleWithAvatar';
+import Login from '../components/Login.jsx'
 
 
 const App = () => (
   <div>
     <MuiThemeProvider>
-     <CardExampleWithAvatar/>
-   </MuiThemeProvider>
+      <Login />
+    </MuiThemeProvider>
   </div>
 );
 

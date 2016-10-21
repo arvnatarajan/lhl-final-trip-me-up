@@ -10,6 +10,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import App from './containers/App.jsx'
 
+let store = createStore()
 
 render(
     <App />,

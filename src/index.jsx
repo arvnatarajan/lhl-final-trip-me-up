@@ -4,13 +4,14 @@
 require("../styles/application.scss");
 
 // Render the top-level React component
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './containers/App.jsx';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import App from './containers/App.jsx'
 
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin();
 
-ReactDOM.render(<App />, document.getElementById('react-root'));
+render(
+    <App />,
+  document.getElementById('react-root')
+)

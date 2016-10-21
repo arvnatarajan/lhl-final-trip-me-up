@@ -9,10 +9,18 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import App from './containers/App.jsx'
+import loginReducer from './reducers/index'
+import { login } from './actions/index'
 
-let store = createStore()
+let store = createStore(loginReducer)
 
 render(
-    <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('react-root')
 )
+
+setTimeout( () => {
+  store.dispatch(login('foo'))
+}, 2000)

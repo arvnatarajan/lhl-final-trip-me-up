@@ -1,17 +1,20 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Navbar from '../components/Navbar.jsx'
-import Signup from '../components/Signup.jsx'
-import Carousel from '../components/Carousel.jsx'
+import { connect } from 'react-redux'
 
-const App = () => (
-  <div>
-    <Navbar />
-    <div className="flex-grid">
-      <Carousel className="col"/>
-      <Signup className="col"/>
+class App extends React.Component {
+  render() {
+    return (
+    <div>
+      { this.props.user.length > 0 ? <h1>Logged in {this.props.user}</h1> : <h1>Log in please</h1> }
     </div>
-  </div>
-);
+  )
+  }
+}
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(App)

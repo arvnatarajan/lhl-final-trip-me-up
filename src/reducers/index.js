@@ -1,8 +1,10 @@
 const login = (state = {user: ''}, action) => {
   switch (action.type) {
     case 'LOGIN':
-      return {...state, {user: action.user}}
+      return Object.assign({}, state, {user: action.user})
   default:
     return state
   }
-} 
+}
+
+export default login

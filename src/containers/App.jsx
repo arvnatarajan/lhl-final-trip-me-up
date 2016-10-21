@@ -9,8 +9,8 @@ const App = () => (
   <div>
     <Navbar />
     <div className="flex-grid">
+      <Carousel className="col"/>
       <Signup className="col"/>
-      <Carousel className="col carousel"/>
     </div>
   </div>
 );

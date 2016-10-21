@@ -5,10 +5,10 @@ const Signup = () => (
     <form className="signup">
       <h1>Sign Up</h1>
       <h3>It's free for now...</h3>
-      <span><input type="text" placeholder="First Name"/></span>
-      <span><input type="text" placeholder="Last Name"/></span>
-      <span><input type="text" placeholder="Email"/></span>
-      <span><input type="text" placeholder="Password"/></span>
+      <input type="text" placeholder="First Name"/>
+      <input type="text" placeholder="Last Name"/>
+      <input type="text" placeholder="Email"/>
+      <input type="text" placeholder="Password"/>
     </form>
   </div>
 );

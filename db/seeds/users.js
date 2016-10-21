@@ -16,14 +16,14 @@ exports.seed = function(knex, Promise) {
       return knex('trips').del()
       .then(function(){
         return Promise.all([
-          knex('trips').returning('id').insert({id:1, start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[0]), start_location: 'london',      destination: 'new york', img_url:'blah'}),
-          knex('trips').returning('id').insert({id:2, start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[0]), start_location: 'toronto',     destination: 'montreal', img_url:'blah'}),
-          knex('trips').returning('id').insert({id:3, start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[0]), start_location: 'paris',       destination: 'shanghai', img_url:'blah'}),
-          knex('trips').returning('id').insert({id:4, start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[1]), start_location: 'tokyo',       destination: 'dubai',    img_url:'blah'}),
-          knex('trips').returning('id').insert({id:5, start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[1]), start_location: 'los angeles', destination: 'madrid',   img_url:'blah'}),
-          knex('trips').returning('id').insert({id:6, start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[2]), start_location: 'toronto',     destination: 'moscow',   img_url:'blah'}),
-          knex('trips').returning('id').insert({id:7, start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[3]), start_location: 'sydney',      destination: 'athens',   img_url:'blah'}),
-          knex('trips').returning('id').insert({id:8, start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[3]), start_location: 'toronto',     destination: 'dallas',   img_url:'blah'})
+          knex('trips').returning('id').insert({id:1, title:'my trip!', start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[0]), start_location: 'london',      destination: 'new york', img_url:'blah'}),
+          knex('trips').returning('id').insert({id:2, title:'my trip!', start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[0]), start_location: 'toronto',     destination: 'montreal', img_url:'blah'}),
+          knex('trips').returning('id').insert({id:3, title:'my trip!', start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[0]), start_location: 'paris',       destination: 'shanghai', img_url:'blah'}),
+          knex('trips').returning('id').insert({id:4, title:'my trip!', start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[1]), start_location: 'tokyo',       destination: 'dubai',    img_url:'blah'}),
+          knex('trips').returning('id').insert({id:5, title:'my trip!', start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[1]), start_location: 'los angeles', destination: 'madrid',   img_url:'blah'}),
+          knex('trips').returning('id').insert({id:6, title:'my trip!', start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[2]), start_location: 'toronto',     destination: 'moscow',   img_url:'blah'}),
+          knex('trips').returning('id').insert({id:7, title:'my trip!', start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[3]), start_location: 'sydney',      destination: 'athens',   img_url:'blah'}),
+          knex('trips').returning('id').insert({id:8, title:'my trip!', start_date: '11/03/2011', end_date: '11/10/2011', user_id:Number(userIds[3]), start_location: 'toronto',     destination: 'dallas',   img_url:'blah'})
         ]);
       })
     })

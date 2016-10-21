@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
       table.integer('user_id').references('id').inTable('users');
       table.date('start_date');
       table.date('end_date');
+      table.string('title')
       table.string('start_location');
       table.string('destination');
       table.string('img_url');

@@ -1,5 +1,29 @@
-export const REQUEST_POSTS = 'REQUEST_TRIPS'
-export const RECEIVE_POSTS = 'RECEIVE_TRIPS'
+import fetch from 'isomorphic-fetch'
+
+export const SELECT_USER = 'SELECT_USER'
+export function selectUser(user) {
+  return {
+    type: SELECT_USER,
+    user
+  }
+}
+
+export const REQUEST_TRIPS = 'REQUEST_POSTS'
+export function requestTrips(user) {
+  return {
+    type: REQUEST_TRIPS,
+    user
+  }
+}
+
+export const RECEIVE_TRIPS = 'RECEIVE_TRIPS'
+export function receiveTrips(user, json) {
+  return {
+    type: RECEIVE_TRIPS,
+    user,
+    trips: json.data
+  }
+}
 
 export const login = (user_token) => {
   return {
@@ -8,27 +32,11 @@ export const login = (user_token) => {
   }
 }
 
-export const specifyUserID = (user_ID) => {
-  return {
-    type: 'SPECIFY_ID',
-    ID: user_ID
-  }
-}
-
-export const requestTrips = user_data => ({
-  type: REQUEST_TRIPS,
-  user_data
-})
-
-export const receiveTrips = (user_data, json) => ({
-  type: RECEIVE_TRIPS,
-  user_data,
-  trips: json.data
-})
-
-const fetchTrips = user_data => dispatch => {
-  dispatch(requestTrips(user_data))
-  return fetch('/api/trips')
-    .then(response => response.json())
-    .then(json => dispatch(receiveTrips(user_data, json)))
+export function fetchTrips(user) {
+    return function (dispatch) {
+      dispatch(requestTrips(user))
+      return fetch('/api/trips')
+        .then(response => response.json())
+        .then(json => dispatch(receiveTrips(user, json)))
+    }
 }

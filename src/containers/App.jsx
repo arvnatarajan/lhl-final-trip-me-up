@@ -1,13 +1,17 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Login from '../components/Login.jsx'
+import Navbar from '../components/Navbar.jsx'
+import Signup from '../components/Signup.jsx'
+import Carousel from '../components/Carousel.jsx'
 
 
 const App = () => (
   <div>
-    <MuiThemeProvider>
-      <Login />
-    </MuiThemeProvider>
+    <Navbar />
+    <div className="flex-grid">
+      <Signup className="col"/>
+      <Carousel className="col carousel"/>
+    </div>
   </div>
 );
 

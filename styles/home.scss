@@ -1,1 +1,61 @@
+body {
+  font-family: 'Dosis', sans-serif;
+}
 
+#react-root {
+  width: 100%;
+}
+
+nav {
+  padding: 20px 20px 15px 0;
+  width: 100%;
+  background-color: black;
+  color: #eeebe7;
+  display: flex;
+  justify-content: flex-end;
+
+  h1 {
+    margin-right: 200px;
+  }
+}
+
+.signup {
+  height: 300px;
+  width: 150px;
+
+  span {
+    padding: 20px;
+    width: 60px;
+  }
+}
+
+.login {
+
+  span {
+    padding: 10px;
+  }
+  
+  p {
+    margin: 0 0 8px 0;
+  }
+
+}
+
+.flex-grid {
+  display: flex;
+
+    col {
+      flex: 1;
+      padding: 10px;
+    }
+}
+
+input {
+  padding: 3px;
+}
+
+.carousel {
+  border: 1px solid black;
+  height: 300px;
+  width: 150px;
+}

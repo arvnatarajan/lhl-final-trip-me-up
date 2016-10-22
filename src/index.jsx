@@ -31,7 +31,6 @@ setTimeout( () => {
   store.dispatch(login('foo'))
 }, 2000)
 
-
 store
   .dispatch(fetchTrips('trips'))
   .then(() => console.log('state after fetchtrips: ', store.getState()))

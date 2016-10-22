@@ -15,10 +15,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { trips } = this.props
+    const { trips, user } = this.props
     return (
       <div>
-        <Navbar/>
+        <Navbar user={user ? user[0] : 'sign in'} />
         <Trips trips={trips ? trips : [{title: 'Loading..'}]}/>
       </div>
     )
@@ -27,7 +27,8 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    trips: state.displayTrips.trips
+    trips: state.displayTrips.trips,
+    user: state.displayUser.user
   }
 }
 

@@ -14,6 +14,7 @@ import { createStore, applyMiddleware } from 'redux'
 import App from './containers/App.jsx'
 import rootReducer from './reducers/index'
 import { login, fetchTrips } from './actions/index'
+import { fetchUser } from './actions/user.js'
 
 const loggerMiddleware = createLogger()
 
@@ -26,10 +27,25 @@ render(
   document.getElementById('react-root')
 )
 
+
+
 setTimeout( () => {
   store.dispatch(login('foo'))
 }, 2000)
 
+
+// FETCHES USER DETAILS
 store
-  .dispatch(fetchTrips('trips'))
-  .then(() => console.log('state after fetchtrips: ', store.getState()))
+  .dispatch(fetchUser(1))
+  .then(() => console.log('state after fetchuser: ', store.getState()))
+
+// FETCHES ALL TRIPS
+// let user_id = 1
+// store
+//   .dispatch(fetchTrips(user_id, 'trips'))
+//   .then(() => console.log('state after fetchtrips: ', store.getState()))
+
+
+
+
+

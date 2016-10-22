@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { RECEIVE_TRIPS, REQUEST_TRIPS } from '../actions/index'
+import { displayUser } from './user.jsx'
 
 const login = (state = {user: ''}, action) => {
   switch (action.type) {
@@ -24,7 +25,8 @@ const displayTrips = (state = {}, action) => {
 
 const rootReducer = combineReducers({
   login,
-  displayTrips
+  displayTrips,
+  displayUser
 })
 
 export default rootReducer

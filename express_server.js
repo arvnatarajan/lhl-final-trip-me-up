@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
-app.use("/api/trips", tripsRoutes(knex));
+// app.use("/api/trips", tripsRoutes(knex));
 
 
 // Home page

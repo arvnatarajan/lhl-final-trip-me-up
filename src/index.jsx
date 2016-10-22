@@ -16,13 +16,14 @@ import rootReducer from './reducers/index'
 import { login, fetchTrips } from './actions/index'
 import { fetchUser } from './actions/user.js'
 
+
 const loggerMiddleware = createLogger()
 
 let store = createStore(rootReducer, applyMiddleware(thunkMiddleware, loggerMiddleware))
 
 render(
   <Provider store={store}>
-    <App />
+      <App />
   </Provider>,
   document.getElementById('react-root')
 )
@@ -36,6 +37,7 @@ setTimeout( () => {
 
 // FETCHES USER DETAILS
 store
+
   .dispatch(fetchUser(1))
   .then(() => console.log('state after fetchuser: ', store.getState()))
 
@@ -48,4 +50,9 @@ store
 
 
 
+
+
+  .dispatch(fetchTrips('trips'))
+  .then(() => console.log('state after fetchtrips: ', store.getState()))
+  .catch(err => {console.log(err)})
 

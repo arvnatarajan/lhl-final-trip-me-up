@@ -1,5 +1,5 @@
-import React from 'react';
-import Login from './Login.jsx'
+import React, { PropTypes } from 'react';
+import Login from './Login'
 
 const Navbar = () => (
   <nav>

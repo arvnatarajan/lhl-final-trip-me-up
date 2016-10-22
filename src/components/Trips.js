@@ -1,9 +1,12 @@
 import React, { PropTypes } from 'react'
+import Card from './Card'
 
-const Trips = ({trips}) => (
-  <ul>
-    {trips}
-  </ul>
+const Trips = ({ trips }) => (
+  <div>
+    {trips.map((item, i) =>
+      <Card key={i} trip={item}/>
+    )}
+  </div>
 )
 
 Trips.propTypes = {

@@ -2,31 +2,32 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { fetchTrips } from '../actions/index'
 import Trips from '../components/Trips'
-
+import Navbar from '../components/Navbar'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   componentDidMount() {
-    const { dispatch, user_data } = this.props
-    dispatch(fetchTrips(user_data))
+    const { dispatch } = this.props
   }
 
   render() {
+    const { trips } = this.props
     return (
       <div>
-        <Trips trips={trips} />
+        <Navbar/>
+        <Trips trips={trips ? trips : [{title: 'Loading..'}]}/>
       </div>
     )
   }
-
 }
 
-const mapStateToProps = state => {
-  console.log(state)
+
+const mapStateToProps = (state) => {
   return {
-    user: state.user,
-    ID: state.ID,
-    trips: state.trips
+    trips: state.displayTrips.trips
   }
 }
 

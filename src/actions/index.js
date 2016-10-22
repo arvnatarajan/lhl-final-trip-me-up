@@ -1,30 +1,5 @@
 import fetch from 'isomorphic-fetch'
 
-export const SELECT_USER = 'SELECT_USER'
-export function selectUser(user) {
-  return {
-    type: SELECT_USER,
-    user
-  }
-}
-
-export const REQUEST_TRIPS = 'REQUEST_POSTS'
-export function requestTrips(user) {
-  return {
-    type: REQUEST_TRIPS,
-    user
-  }
-}
-
-export const RECEIVE_TRIPS = 'RECEIVE_TRIPS'
-export function receiveTrips(user, json) {
-  return {
-    type: RECEIVE_TRIPS,
-    user,
-    trips: json.data
-  }
-}
-
 export const login = (user_token) => {
   return {
     type: 'LOGIN',
@@ -32,11 +7,29 @@ export const login = (user_token) => {
   }
 }
 
-export function fetchTrips(user) {
-    return function (dispatch) {
-      dispatch(requestTrips(user))
-      return fetch('/api/trips')
-        .then(response => response.json())
-        .then(json => dispatch(receiveTrips(user, json)))
-    }
+export const REQUEST_TRIPS = 'REQUEST_TRIPS'
+export const requestTrips = () => {
+  return {
+    type: REQUEST_TRIPS,
+    trips: [{title: 'Loading trips'}]
+  }
+}
+
+export const RECEIVE_TRIPS = 'RECEIVE_TRIPS'
+export const receiveTrips = (trips) => {
+  return {
+    type: RECEIVE_TRIPS,
+    trips
+  }
+}
+
+export function fetchTrips(trips) {
+  return function (dispatch) {
+    dispatch(requestTrips())
+    return fetch(`http://localhost:8080/api/${trips}`)
+      .then(response => response.json())
+      .then(response => {
+        dispatch(receiveTrips(response))
+      })
+  }
 }

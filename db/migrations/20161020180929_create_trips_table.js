@@ -3,12 +3,13 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('trips', function(table){
       table.increments('id').primary();
       table.integer('user_id').references('id').inTable('users');
-      table.date('start_date');
-      table.date('end_date');
-      table.string('title')
-      table.string('start_location');
-      table.string('destination');
-      table.string('img_url');
+      table.date('trip_start');
+      table.date('trip_end');
+      table.string('trip_title')
+      table.string('trip_start_location');
+      table.string('trip_destination');
+      table.string('trip_img_url');
+      table.string('trip_description');
       table.timestamps();
     })
   ])

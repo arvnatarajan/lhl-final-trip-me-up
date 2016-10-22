@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
       table.string('email');
       table.string('password_salted');
       table.string('homebase');
-      table.string('img_url');
+      table.string('profile_img_url');
       table.timestamps();
     })
   ])

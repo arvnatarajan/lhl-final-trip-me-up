@@ -4,9 +4,9 @@ exports.up = function(knex, Promise) {
       table.increments('id').primary();
       table.integer('trip_id').references('id').inTable('trips');
       table.date('date');
-      table.string('start_location');
-      table.string('end_location');
-      table.string('img_url');
+      table.string('day_start_location');
+      table.string('day_end_location');
+      table.string('day_img_url');
 
       table.timestamps();
     })

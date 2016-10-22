@@ -15,13 +15,14 @@ import App from './containers/App.jsx'
 import rootReducer from './reducers/index'
 import { login, fetchTrips } from './actions/index'
 
+
 const loggerMiddleware = createLogger()
 
 let store = createStore(rootReducer, applyMiddleware(thunkMiddleware, loggerMiddleware))
 
 render(
   <Provider store={store}>
-    <App />
+      <App />
   </Provider>,
   document.getElementById('react-root')
 )
@@ -34,3 +35,4 @@ setTimeout( () => {
 store
   .dispatch(fetchTrips('trips'))
   .then(() => console.log('state after fetchtrips: ', store.getState()))
+  .catch(err => {console.log(err)})

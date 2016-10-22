@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
-import Card from './Card'
+import TripCard from './TripCard'
 
 const Trips = ({ trips }) => (
   <div>
     {trips.map((item, i) =>
-      <Card key={i} trip={item}/>
+      <TripCard key={i} index={i} trip={item}/>
     )}
   </div>
 )

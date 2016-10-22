@@ -11,6 +11,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const { dispatch } = this.props
+    dispatch(fetchTrips)
   }
 
   render() {
@@ -23,7 +24,6 @@ class App extends React.Component {
     )
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {

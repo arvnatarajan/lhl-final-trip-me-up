@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { fetchTrips } from '../actions/index'
-import Trips from '../components/Trips'
+import UserTrips from '../components/UserTrips'
 import Navbar from '../components/Navbar'
 
 class App extends React.Component {
@@ -18,8 +18,8 @@ class App extends React.Component {
     const { trips, user } = this.props
     return (
       <div>
-        <Navbar user={user ? user[0] : 'sign in'} />
-        <Trips trips={trips ? trips : [{title: 'Loading..'}]}/>
+        <Navbar user={user ? user[0] : {'first_name': 'sign in'}} />
+        <UserTrips trips={trips ? trips : [{title: 'Loading..'}]}/>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { RECEIVE_TRIPS, REQUEST_TRIPS } from '../actions/index'
-import { displayUser } from './user.jsx'
+import { displayUser } from './user'
 
 const login = (state = {user: ''}, action) => {
   switch (action.type) {

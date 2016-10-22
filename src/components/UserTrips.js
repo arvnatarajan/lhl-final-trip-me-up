@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import TripCard from './TripCard'
 
-const Trips = ({ trips }) => (
+const UserTrips = ({ trips }) => (
   <div>
     {trips.map((item, i) =>
       <TripCard key={i} index={i} trip={item}/>
@@ -9,8 +9,8 @@ const Trips = ({ trips }) => (
   </div>
 )
 
-Trips.propTypes = {
+UserTrips.propTypes = {
   trips: PropTypes.array.isRequired
 }
 
-export default Trips
+export default UserTrips

@@ -26,13 +26,8 @@ export const receiveTrips = (trips) => {
 export function fetchTrips(user_id, trips) {
   return function (dispatch) {
     dispatch(requestTrips())
-<<<<<<< HEAD
+    
     return fetch(`http://localhost:8080/api/users/${user_id}/${trips}`)
-=======
-
-    return fetch(`http://localhost:8080/api/${trips}`)
-      // .then()
->>>>>>> f4886652b476f368b8c72672bda4e093d8eb64de
       .then(response => response.json())
       .then(response => {
         dispatch(receiveTrips(response))

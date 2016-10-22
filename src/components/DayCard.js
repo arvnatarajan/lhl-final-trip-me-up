@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-const TripCard = ({ trip, index }) => (
+const DayCard = ({ trip, index }) => (
   <div className="card" >
     <div className="card-container">
       <header className="card-header">
@@ -14,9 +14,9 @@ const TripCard = ({ trip, index }) => (
   </div>
 );
 
-TripCard.propTypes = {
+DayCard.propTypes = {
   trip: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired
 }
 
-export default TripCard;
+export default DayCard;

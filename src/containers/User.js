@@ -5,7 +5,7 @@ import UserTrips from '../components/UserTrips'
 import NewTripForm from '../components/NewTripForm'
 import { Button, Modal } from 'react-bootstrap';
 
-class Profile extends React.Component {
+class User extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -84,7 +84,7 @@ class Profile extends React.Component {
   }
 }
 
-Profile.contextTypes = {
+User.contextTypes = {
   store: React.PropTypes.object
 }
 
@@ -96,4 +96,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Profile)
+export default connect(mapStateToProps)(User)

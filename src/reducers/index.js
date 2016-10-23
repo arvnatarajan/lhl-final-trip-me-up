@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_TRIPS, REQUEST_TRIPS } from '../actions/index'
+import { RECEIVE_TRIPS, REQUEST_TRIPS, SHOW_MODAL } from '../actions/index'
 import { displayUser } from './user'
 import { reducer as formReducer } from 'redux-form'
 
 const reducers = {
-  // ... your other reducers here ...
+
   form: formReducer,     // <---- Mounted at 'form'
 
   login: (state = {user: ''}, action) => {
@@ -27,6 +27,18 @@ const reducers = {
         return state
     }
   },
+
+  showModal: (state = {showModal: false}, action) => {
+    switch (action.type) {
+      case SHOW_MODAL:
+        return Object.assign({}, state, {
+          showModal: action.status
+        })
+      default:
+        return state
+    }
+  },
+
   displayUser
 
 }

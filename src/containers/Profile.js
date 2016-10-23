@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchTrips } from '../actions/index'
+import { fetchTrips, showModal } from '../actions/index'
 import UserTrips from '../components/UserTrips'
 import NewTripForm from '../components/NewTripForm'
+import { Button, Modal } from 'react-bootstrap';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -10,8 +11,16 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
+    const { store } = this.context
     const { dispatch } = this.props
-    dispatch(fetchTrips)
+    store.dispatch(fetchTrips(1, 'trips'))
+  }
+
+  openNewTripFrom = () => {
+    const { store } = this.context
+    const { dispatch } = this.props
+    store.dispatch(showModal(true))
+    console.log('clicked')
   }
 
   handleSubmit = (values) => {
@@ -37,6 +46,23 @@ class Profile extends React.Component {
     const { trips, user } = this.props
     return (
       <div>
+        <Button
+            bsStyle="primary"
+            bsSize="large"
+            onClick={this.openNewTripForm}
+          >Create your next trip!
+        </Button>
+        <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-lg">
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h4>Wrapped Text</h4>
+            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          </Modal.Body>
+          <Modal.Footer>
+          </Modal.Footer>
+        </Modal>
         <NewTripForm
           onSubmit={this.handleSubmit}
           user={user ? user[0] : { 'status': 'Please log in!' }}
@@ -47,8 +73,11 @@ class Profile extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+Profile.contextTypes = {
+  store: React.PropTypes.object
+}
 
+const mapStateToProps = (state) => {
   return {
     trips: state.displayTrips.trips,
     user: state.displayUser.user

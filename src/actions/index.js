@@ -7,6 +7,14 @@ export const login = (user_token) => {
   }
 }
 
+export const SHOW_MODAL = 'SHOW_MODAL'
+export const showModal = (status) => {
+  return {
+    type: SHOW_MODAL,
+    showModal: status
+  }
+}
+
 export const REQUEST_TRIPS = 'REQUEST_TRIPS'
 export const requestTrips = () => {
   return {
@@ -26,7 +34,7 @@ export const receiveTrips = (trips) => {
 export function fetchTrips(user_id, trips) {
   return function (dispatch) {
     dispatch(requestTrips())
-    
+
     return fetch(`http://localhost:8080/api/users/${user_id}/${trips}`)
       .then(response => response.json())
       .then(response => {

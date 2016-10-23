@@ -11,12 +11,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    const { store } = this.context
     const { dispatch } = this.props
-    dispatch(fetchTrips)
+    store.dispatch(fetchTrips)
   }
 
   render() {
     const { trips, user } = this.props
+    const { store } = this.context
     return (
       <div>
         <Navbar user={user ? user[0] : {'first_name': 'sign in'}} />
@@ -27,6 +29,14 @@ class App extends React.Component {
       </div>
     )
   }
+}
+
+App.contextTypes = {
+  store: React.PropTypes.object
+}
+
+App.contextTypes = {
+  store: React.PropTypes.object
 }
 
 const mapStateToProps = (state) => {

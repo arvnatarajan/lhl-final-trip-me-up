@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import TripCard from './TripCard'
 
 const UserTrips = ({ trips }) => (
-  <div>
+  <div className="trips-container">
     {trips.map((item, i) =>
       <TripCard key={i} index={i} trip={item}/>
     )}

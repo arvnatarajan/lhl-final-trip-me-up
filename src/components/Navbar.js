@@ -8,8 +8,8 @@ const Navbar = ({ user }) => (
     <span> Hello { user.first_name }! </span>
     <span> Homebase { user.homebase } </span>
     <span> Trip me Up </span>
-      <Link to="trip"> Trip </Link>
-      <Link to="user"> User </Link>
+      <Link to="trip/1"> Trip </Link>
+      <Link to="user/1"> User </Link>
     <Login />
 
 

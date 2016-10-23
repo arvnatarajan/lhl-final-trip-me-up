@@ -18,6 +18,9 @@ class Profile extends React.Component {
     console.log(JSON.stringify(values), 'hello')
     fetch(`http://localhost:8080/api/users/1/trips/new`, {
       method:'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         trip_start: values.trip_start,
         trip_end: values.trip_end,
@@ -27,6 +30,7 @@ class Profile extends React.Component {
       })
     })
     .then(response => response.json())
+    .catch(err => console.log(err))
   }
 
   render() {

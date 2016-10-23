@@ -62,7 +62,7 @@ module.exports = (knex) => {
   });
 
   router.post("/:user_id/trips/new", (req, res) => {
-    console.log(req)
+    console.log('inserting triping into database: ', req.body)
     knex('trips')
     .returning('id')
     .insert({
@@ -70,8 +70,8 @@ module.exports = (knex) => {
       trip_start: req.body.trip_start,
       trip_end: req.body.trip_end,
       trip_title: req.body.trip_title,
-      trip_start_location: req.body.start_location,
-      trip_destination: req.body.destination
+      trip_start_location: req.body.trip_start_location,
+      trip_destination: req.body.trip_destination
     })
     .then((results) => {
       res.json(results)
@@ -95,5 +95,3 @@ module.exports = (knex) => {
 
   return router;
 }
-
-

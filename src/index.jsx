@@ -28,8 +28,6 @@ render(
   document.getElementById('react-root')
 )
 
-
-
 setTimeout( () => {
   store.dispatch(login('foo'))
 }, 2000)

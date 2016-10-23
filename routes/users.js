@@ -62,13 +62,15 @@ module.exports = (knex) => {
   });
 
   router.post("/:user_id/trips/new", (req, res) => {
+    console.log(req)
     knex('trips')
+    .returning('id')
     .insert({
-      user_id: req.params.user_id
-      trip_start: req.body.trip_start
-      trip_end: req.body.trip_end
-      trip_title: req.body.trip_title
-      trip_start_location: req.body.start_location
+      user_id: req.params.user_id,
+      trip_start: req.body.trip_start,
+      trip_end: req.body.trip_end,
+      trip_title: req.body.trip_title,
+      trip_start_location: req.body.start_location,
       trip_destination: req.body.destination
     })
     .then((results) => {
@@ -79,10 +81,10 @@ module.exports = (knex) => {
   router.post("/:user_id/trips/:trip_id/days/new", (req, res) => {
     knex('days')
     .insert({
-      trip_id: req.params.trip_id
-      date: req.body.date
-      day_start_location: req.body.day_start_location
-      day_end_location: req.body.day_end_location
+      trip_id: req.params.trip_id,
+      date: req.body.date,
+      day_start_location: req.body.day_start_location,
+      day_end_location: req.body.day_end_location,
       day_img_url: req.body.day_img_url
     })
     .then((results) => {

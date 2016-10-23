@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchTrips } from '../actions/index'
 import UserTrips from '../components/UserTrips'
 import Navbar from '../components/Navbar'
+import Profile from './Profile'
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +20,10 @@ class App extends React.Component {
     return (
       <div>
         <Navbar user={user ? user[0] : {'first_name': 'sign in'}} />
-        <UserTrips trips={trips ? trips : [{title: 'Loading..'}]}/>
+        <Profile  trips={trips ? trips : [{title: 'Loading..'}]}
+                  user={user ? user[0] : {'status': 'Please log in'}}
+        />
+
       </div>
     )
   }

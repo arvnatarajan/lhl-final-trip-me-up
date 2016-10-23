@@ -33,7 +33,9 @@ class Profile extends React.Component {
   }
 
   handleSubmit = (values) => {
-    console.log(JSON.stringify(values), 'hello')
+    const { store } = this.context
+    const { dispatch } = this.props
+
     fetch(`http://localhost:8080/api/users/1/trips/new`, {
       method:'POST',
       headers: {
@@ -49,6 +51,8 @@ class Profile extends React.Component {
     })
     .then(response => response.json())
     .catch(err => console.log(err))
+
+    store.dispatch(showModal(false))
   }
 
   render() {
@@ -63,19 +67,17 @@ class Profile extends React.Component {
         </Button>
         <Modal {...this.props} show={ modal } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
+            <Modal.Title id="contained-modal-title-lg">Create a trip</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Wrapped Text</h4>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <NewTripForm
+              onSubmit={this.handleSubmit}
+              user={user ? user[0] : { 'status': 'Please log in!' }}
+            />
           </Modal.Body>
           <Modal.Footer>
           </Modal.Footer>
         </Modal>
-        <NewTripForm
-          onSubmit={this.handleSubmit}
-          user={user ? user[0] : { 'status': 'Please log in!' }}
-        />
         <UserTrips trips={trips ? trips : [{title: 'Loading..'}]}/>
       </div>
     )

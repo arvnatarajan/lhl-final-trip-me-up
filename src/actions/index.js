@@ -31,6 +31,7 @@ export const receiveTrips = (trips) => {
   }
 }
 
+
 export function fetchTrips(user_id, trips) {
   return function (dispatch) {
     dispatch(requestTrips())

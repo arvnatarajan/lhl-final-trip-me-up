@@ -35,10 +35,6 @@ App.contextTypes = {
   store: React.PropTypes.object
 }
 
-App.contextTypes = {
-  store: React.PropTypes.object
-}
-
 const mapStateToProps = (state) => {
   return {
     trips: state.displayTrips.trips,

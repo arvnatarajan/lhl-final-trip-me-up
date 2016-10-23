@@ -28,11 +28,11 @@ const reducers = {
     }
   },
 
-  showModal: (state = {showModal: false}, action) => {
+  showModalForm: (state = {showModal: false}, action) => {
     switch (action.type) {
       case SHOW_MODAL:
         return Object.assign({}, state, {
-          showModal: action.status
+          showModal: action.showModal
         })
       default:
         return state

@@ -16,11 +16,20 @@ class Profile extends React.Component {
     store.dispatch(fetchTrips(1, 'trips'))
   }
 
-  openNewTripFrom = () => {
+  openNewTripForm = () => {
     const { store } = this.context
     const { dispatch } = this.props
     store.dispatch(showModal(true))
     console.log('clicked')
+    console.log(store.getState(), 'open')
+  }
+
+  closeNewTripForm = () => {
+    const { store } = this.context
+    const { dispatch } = this.props
+    store.dispatch(showModal(false))
+    console.log('clicked')
+    console.log(store.getState(), 'close')
   }
 
   handleSubmit = (values) => {
@@ -43,7 +52,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { trips, user } = this.props
+    const { trips, user, modal } = this.props
     return (
       <div>
         <Button
@@ -52,7 +61,7 @@ class Profile extends React.Component {
             onClick={this.openNewTripForm}
           >Create your next trip!
         </Button>
-        <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-lg">
+        <Modal {...this.props} show={ modal } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
           </Modal.Header>
@@ -80,7 +89,8 @@ Profile.contextTypes = {
 const mapStateToProps = (state) => {
   return {
     trips: state.displayTrips.trips,
-    user: state.displayUser.user
+    user: state.displayUser.user,
+    modal: state.showModalForm.showModal
   }
 }
 

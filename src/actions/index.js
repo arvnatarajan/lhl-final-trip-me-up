@@ -1,12 +1,5 @@
 import fetch from 'isomorphic-fetch'
 
-export const login = (user_token) => {
-  return {
-    type: 'LOGIN',
-    user: user_token
-  }
-}
-
 export const SHOW_MODAL = 'SHOW_MODAL'
 export const showModal = (status) => {
   return {
@@ -27,7 +20,7 @@ export const REQUEST_TRIPS = 'REQUEST_TRIPS'
 export const requestTrips = () => {
   return {
     type: REQUEST_TRIPS,
-    trips: [{title: 'Loading trips'}]
+    status: 'Loading trips'
   }
 }
 
@@ -43,7 +36,7 @@ export const REQUEST_DAYS = 'REQUEST_DAYS'
 export const requestDays = () => {
   return {
     type: REQUEST_DAYS,
-    days: [{title: 'Loading Days'}]
+    status: 'Loading days'
   }
 }
 
@@ -52,6 +45,34 @@ export const receiveDays = (days) => {
   return {
     type: RECEIVE_DAYS,
     days
+  }
+}
+
+export const REQUEST_USER = 'REQUEST_USER'
+export const requestUser = () => {
+  return {
+    type: REQUEST_USER,
+    status: 'Loading tripper'
+  }
+}
+
+export const RECEIVE_USER = 'RECEIVE_USER'
+export const receiveUser = (user) => {
+  return {
+    type: RECEIVE_USER,
+    user
+  }
+}
+
+export function fetchUser(user_id) {
+  return function (dispatch) {
+    dispatch(requestUser())
+
+    return fetch(`http://localhost:8080/api/users/${user_id}`)
+      .then(response => response.json())
+      .then(response => {
+        dispatch(receiveUser(response))
+      })
   }
 }
 

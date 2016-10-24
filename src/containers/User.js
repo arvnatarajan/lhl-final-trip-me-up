@@ -13,7 +13,6 @@ class User extends React.Component {
   componentDidMount() {
     const { store } = this.context
     const { dispatch } = this.props
-    store.dispatch(fetchTrips(1, 'trips'))
   }
 
   openNewTripForm = () => {
@@ -72,7 +71,7 @@ class User extends React.Component {
           <Modal.Body>
             <NewTripForm
               onSubmit={this.handleSubmit}
-              user={user ? user[0] : { 'status': 'Please log in!' }}
+              user={user ? user : [ 'status': 'Please log in!' ]}
             />
           </Modal.Body>
           <Modal.Footer>
@@ -90,7 +89,7 @@ User.contextTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    trips: state.trips,
+    trips: state.userTrips,
     user: state.user,
     showModal: state.showModal
   }

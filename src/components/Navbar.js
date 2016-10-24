@@ -14,7 +14,7 @@ const Navbar = ({ user }) => (
 )
 
 Navbar.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.array.isRequired
 }
 
 export default Navbar;

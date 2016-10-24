@@ -11,8 +11,7 @@ class Trip extends React.Component {
   componentDidMount() {
     const { store } = this.context
     const { dispatch } = this.props
-    store.dispatch(fetchDays(2, 'days'))
-  }
+    }
 
   render(){
     const { days } = this.props
@@ -32,7 +31,7 @@ Trip.contextTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    days: state.days,
+    days: state.tripDays,
     user: state.user
   }
 }

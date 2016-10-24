@@ -13,19 +13,18 @@ class App extends React.Component {
   componentDidMount() {
     const { store } = this.context
     const { dispatch } = this.props
-    store.dispatch(fetchTrips)
-    store.dispatch(fetchDays)
   }
 
   navigate(){
     console.log(this.props.history)
   }
+
   render() {
     const { trips, user, days } = this.props
     const { store } = this.context
     return (
       <div>
-        <Navbar user={user ? user : {'first_name': 'sign in'}} />
+        <Navbar user={user ? user : ['first_name': 'sign in']} />
         <button onClick={this.navigate.bind(this)}> button </button>
         {this.props.children}
       </div>
@@ -39,8 +38,8 @@ App.contextTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    trips: state.trips,
-    days: state.days,
+    trips: state.userTrips,
+    days: state.tripDays,
     user: state.user
   }
 }

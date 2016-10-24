@@ -13,8 +13,7 @@ import createLogger from 'redux-logger'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers/index'
-import { login, fetchTrips, fetchDays } from './actions/index'
-import { fetchUser } from './actions/user.js'
+import { login, fetchTrips, fetchDays, fetchUser } from './actions/index'
 import App from './containers/App'
 import Trip from './containers/Trip'
 import User from './containers/User'
@@ -35,11 +34,6 @@ render(
   </Provider>,
   document.getElementById('react-root')
 )
-
-setTimeout( () => {
-  store.dispatch(login('foo'))
-}, 2000)
-
 
 // FETCHES USER DETAILS
 store

@@ -40,11 +40,7 @@ NewTripForm = reduxForm({
 
 
 NewTripForm.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.array.isRequired
 }
 
 export default NewTripForm;
-
-
-
-

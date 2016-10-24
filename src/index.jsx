@@ -28,8 +28,8 @@ render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
-        <Route path="/Trip/:trip_id" component={Trip}/>
-        <Route path="/User/:user_id" component={User}/>
+        <Route path="Trip/:trip_id" component={Trip}/>
+        <Route path="User/:user_id" component={User}/>
       </Route>
     </Router>
   </Provider>,

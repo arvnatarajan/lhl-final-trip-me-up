@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_TRIPS, REQUEST_TRIPS, SHOW_MODAL } from '../actions/index'
+import { RECEIVE_TRIPS, REQUEST_TRIPS, RECEIVE_DAYS, REQUEST_DAYS, SHOW_MODAL } from '../actions/index'
 import { displayUser } from './user'
 import { reducer as formReducer } from 'redux-form'
 
@@ -22,6 +22,18 @@ const reducers = {
       case REQUEST_TRIPS:
         return Object.assign({}, state, {
           trips: action.trips
+        })
+      default:
+        return state
+    }
+  },
+
+  displayDays: (state = {}, action) => {
+    switch (action.type) {
+      case RECEIVE_DAYS:
+      case REQUEST_DAYS:
+        return Object.assign({}, state, {
+          days: action.days
         })
       default:
         return state

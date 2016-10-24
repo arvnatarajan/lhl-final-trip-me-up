@@ -1,5 +1,5 @@
 amalfi
-update trips set trip_img_url = 'http://i65.tinypic.com/34i332x.jpg' where id = 2;
+update trips set trip_img_url = 'http://i65.tinypic.com/34i332x.jpg' where id = 8;
 
 greece
 update trips set trip_img_url = 'http://i64.tinypic.com/5dmipj.jpg' where id = 3;
@@ -8,7 +8,7 @@ hawaii
 update trips set trip_img_url = 'http://i64.tinypic.com/2i8c4za.jpg' where id = 4;
 
 ny
-update trips set trip_img_url = 'http://i64.tinypic.com/2mq7wya.jpg' where id = 5;
+update trips set trip_img_url = 'http://i64.tinypic.com/2mq7wya.jpg' where id = 2;
 
 sf
 http://i67.tinypic.com/2qmp9ae.jpg

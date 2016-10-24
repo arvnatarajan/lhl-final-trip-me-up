@@ -13,7 +13,7 @@ import createLogger from 'redux-logger'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers/index'
-import { login, fetchTrips } from './actions/index'
+import { login, fetchTrips, fetchDays } from './actions/index'
 import { fetchUser } from './actions/user.js'
 import App from './containers/App'
 import Trip from './containers/Trip'
@@ -51,3 +51,8 @@ let user_id = 1
 store
   .dispatch(fetchTrips(user_id, 'trips'))
   .then(() => console.log('state after fetchtrips: ', store.getState()))
+
+let trip_id = 2
+store
+  .dispatch(fetchDays(trip_id, 'days'))
+  .then(() => console.log('state after fetchdays: ', store.getState()))

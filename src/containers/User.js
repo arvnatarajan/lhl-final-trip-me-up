@@ -90,9 +90,9 @@ User.contextTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    trips: state.displayTrips.trips,
-    user: state.displayUser.user,
-    modal: state.showModalForm.showModal
+    trips: state.trips,
+    user: state.user,
+    showModal: state.showModal
   }
 }
 

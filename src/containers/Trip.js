@@ -32,8 +32,8 @@ Trip.contextTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    days: state.displayDays.days,
-    user: state.displayUser.user
+    days: state.days,
+    user: state.user
   }
 }
 export default connect(mapStateToProps)(Trip)

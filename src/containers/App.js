@@ -25,7 +25,7 @@ class App extends React.Component {
     const { store } = this.context
     return (
       <div>
-        <Navbar user={user ? user[0] : {'first_name': 'sign in'}} />
+        <Navbar user={user ? user : {'first_name': 'sign in'}} />
         <button onClick={this.navigate.bind(this)}> button </button>
         {this.props.children}
       </div>
@@ -39,9 +39,9 @@ App.contextTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    trips: state.displayTrips.trips,
-    days: state.displayDays.days,
-    user: state.displayUser.user
+    trips: state.trips,
+    days: state.days,
+    user: state.user
   }
 }
 

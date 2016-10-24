@@ -15,6 +15,14 @@ export const showModal = (status) => {
   }
 }
 
+export const SHOW_DAY_DROPDOWN = 'SHOW_DAY_DROPDOWN'
+export const showDayDropdown = (status) => {
+  return {
+    type: SHOW_DAY_DROPDOWN,
+    showDayDropdown: status
+  }
+}
+
 export const REQUEST_TRIPS = 'REQUEST_TRIPS'
 export const requestTrips = () => {
   return {

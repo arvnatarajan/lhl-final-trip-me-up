@@ -1,7 +1,17 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_TRIPS, REQUEST_TRIPS, RECEIVE_DAYS, REQUEST_DAYS, SHOW_MODAL } from '../actions/index'
-import { displayUser } from './user'
 import { reducer as formReducer } from 'redux-form'
+
+import {  RECEIVE_TRIPS,
+          REQUEST_TRIPS,
+          RECEIVE_DAYS,
+          REQUEST_DAYS,
+          REQUEST_USER,
+          RECEIVE_USER,
+          SHOW_MODAL,
+          SHOW_DAY_DROPDOWN
+        } from '../actions/index'
+import { displayUser } from './user'
+
 
 const reducers = {
 
@@ -10,31 +20,27 @@ const reducers = {
   login: (state = {user: ''}, action) => {
     switch (action.type) {
       case 'LOGIN':
-        return Object.assign({}, state, {user: action.user})
+        return {...state, user: action.user}
     default:
       return state
     }
   },
 
-  displayTrips: (state = {}, action) => {
+  userTrips: (state = {}, action) => {
     switch (action.type) {
       case RECEIVE_TRIPS:
       case REQUEST_TRIPS:
-        return Object.assign({}, state, {
-          trips: action.trips
-        })
+        return  {...state, trips: action.trips}
       default:
         return state
     }
   },
 
-  displayDays: (state = {}, action) => {
+  tripDays: (state = {}, action) => {
     switch (action.type) {
       case RECEIVE_DAYS:
       case REQUEST_DAYS:
-        return Object.assign({}, state, {
-          days: action.days
-        })
+        return {...state, days: action.days}
       default:
         return state
     }
@@ -43,20 +49,25 @@ const reducers = {
   showModalForm: (state = {showModal: false}, action) => {
     switch (action.type) {
       case SHOW_MODAL:
-        return Object.assign({}, state, {
-          showModal: action.showModal
-        })
+        return {...state, showModal: action.showModal}
       default:
         return state
     }
   },
 
-  displayUser
+  showDayDropdown: (state = {false}, action) => {
+    switch (action.type) {
+      case SHOW_DAY_DROPDOWN:
+        return {...state, showDayDropdown: action.showDayDropdown}
+      default:
+        return state
+    }
+  },
+
+  user: displayUser
 
 }
 
-const rootReducer = combineReducers(
-  reducers
-)
+const rootReducer = combineReducers(reducers)
 
 export default rootReducer

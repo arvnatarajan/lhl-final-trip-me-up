@@ -1,15 +1,12 @@
-import { combineReducers } from 'redux'
-import { RECEIVE_USER } from '../actions/user'
+import { RECEIVE_USER, REQUEST_USER } from '../actions/user'
 
 
 export const displayUser = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_USER:
-      return Object.assign({}, state, {
-        user: action.user
-      })
+    case REQUEST_USER:
+      return {...state, user: action.user}
     default:
       return state
   }
 }
-

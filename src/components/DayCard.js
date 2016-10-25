@@ -6,9 +6,9 @@ class DayCard extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      showChildren: false
-    }
+    // this.state = {
+    //   showChildren: false
+    // }
   }
 
   handleClick = () => {
@@ -20,10 +20,8 @@ class DayCard extends React.Component {
     }
   }
 
-  getDayEvents = (events, dayCheck) => {
-    return events.filter((event) => {
-      return event.day_id === dayCheck
-    });
+  handleEventSubmit = (activity) => {
+
   }
 
   render(){

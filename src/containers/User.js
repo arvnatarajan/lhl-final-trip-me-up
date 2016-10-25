@@ -24,24 +24,25 @@ class User extends React.Component {
     console.log('clicked')
   }
 
-  handleSubmit = (values) => {
+  handleSubmit = (tripInfo) => {
     fetch(`http://localhost:8080/api/users/1/trips/new`, {
       method:'POST',
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        trip_start: values.trip_start,
-        trip_end: values.trip_end,
-        trip_title: values.trip_title,
-        trip_start_location: values.start_location,
-        trip_destination: values.destination
+        trip_start: tripInfo.trip_start,
+        trip_end: tripInfo.trip_end,
+        trip_title: tripInfo.trip_title,
+        trip_start_location: tripInfo.start_location,
+        trip_destination: tripInfo.destination
       })
     })
-    .then(response => response.json())
+    .then(response => {
+      response.json()
+      this.props.showModal(false)
+    })
     .catch(err => console.log(err))
-
-    this.props.showModal(false)
   }
 
   render() {

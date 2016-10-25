@@ -2,6 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 class NewTripForm extends Component {
+  constructor(props) {
+    super(props)
+  }
 
   render(){
     const { handleSubmit } = this.props;
@@ -31,7 +34,6 @@ class NewTripForm extends Component {
       </form>
     )
   }
-
 }
 
 NewTripForm = reduxForm({

@@ -9,10 +9,6 @@ class Trip extends React.Component {
     super(props)
   }
 
-  // componentWillMount() {
-  //   this.setState({user_id: this.props.user_id});
-  // }
-
   componentDidMount() {
 
     const { user } = this.props

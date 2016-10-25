@@ -25,6 +25,8 @@ class User extends React.Component {
   }
 
   handleSubmit = (values) => {
+    // also post to days
+
     fetch(`http://localhost:8080/api/users/1/trips/new`, {
       method:'POST',
       headers: {

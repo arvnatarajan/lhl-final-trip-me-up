@@ -62,7 +62,7 @@ module.exports = (knex) => {
   });
 
   router.post("/:user_id/trips/new", (req, res) => {
-    console.log('inserting triping into database: ', req.body)
+    console.log('inserting trip into database: ', req.body)
     knex('trips')
     .returning('id')
     .insert({
@@ -73,10 +73,21 @@ module.exports = (knex) => {
       trip_start_location: req.body.trip_start_location,
       trip_destination: req.body.trip_destination
     })
-    .then((results) => {
-      res.json(results)
-    })
+    .then((tripId) => {
+      console.log(tripId)
+      knex('days')
+      .returning('id')
+      .insert({
+        trip_id: tripId[0],
+        date: '11/01/2016',
+        day_start_location: 'toronto'
+      })
+      .then(() => {
+        res.json(tripId)
+      });
+    });
   });
+
 
   router.post("/:user_id/trips/:trip_id/days/new", (req, res) => {
     knex('days')

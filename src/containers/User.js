@@ -15,12 +15,12 @@ class User extends React.Component {
   }
 
   openNewTripForm = () => {
-    this.props.showModal(true)
+    this.props.showModal(this.props.user[0].id)
     console.log('clicked')
   }
 
   closeNewTripForm = () => {
-    this.props.showModal(false)
+    this.props.showModal(null)
     console.log('clicked')
   }
 
@@ -40,14 +40,14 @@ class User extends React.Component {
     })
     .then(response => {
       response.json()
-      this.props.showModal(false)
+      this.props.showModal(null)
       this.props.fetchTrips(1, 'trips')
     })
     .catch(err => console.log(err))
   }
 
   render() {
-    const { trips, user, modalStatus } = this.props
+    const { trips, user, modalID } = this.props
     return (
       <div>
         <Button
@@ -56,7 +56,7 @@ class User extends React.Component {
             onClick={this.openNewTripForm}
           >Create your next trip!
         </Button>
-        <Modal show={ modalStatus } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
+        <Modal show={ modalID } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">Create a trip</Modal.Title>
           </Modal.Header>
@@ -79,7 +79,7 @@ const mapStateToProps = (state) => {
   return {
     trips: state.userTrips,
     user: state.user,
-    modalStatus: state.modalStatus
+    modalID: state.modalID
   }
 }
 

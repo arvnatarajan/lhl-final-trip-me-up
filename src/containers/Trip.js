@@ -10,15 +10,13 @@ class Trip extends React.Component {
   }
 
   componentDidMount() {
-
     const { user } = this.props
     let trip_id = this.props.params.trip_id
     let user_id = user[0] ? user[0].id : null
 
-    this.props.fetchEvents(trip_id, 'events')
-
     if (user[0]) {
       this.props.fetchDays(user_id, trip_id, 'days')
+      this.props.fetchEvents(trip_id, 'events')
     }
   }
 
@@ -34,7 +32,6 @@ class Trip extends React.Component {
     )
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {

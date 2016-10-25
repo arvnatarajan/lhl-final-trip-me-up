@@ -133,13 +133,14 @@ input {
   background-color: white;
   margin: 10px 10%;
   width: 80%;
-  height: 120px;
 
   .day-card-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 120px;
+    border-bottom: 1px solid lightgrey;
 
     .day-card-header {
       display: flex;
@@ -169,7 +170,40 @@ input {
   }
 }
 
-
 .day-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+
+.events-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .event-new-trip-button {
+    margin: 10px;
+  }
+
+  .event-card {
+    width: 80%;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid lightgrey;
+
+    .event-details {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+    }
+
+    .event-type {
+
+    }
+  }
 }

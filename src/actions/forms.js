@@ -1,7 +1,7 @@
 export const SHOW_MODAL = 'SHOW_MODAL'
-export const showModal = (status) => {
+export const showModal = (ID) => {
   return {
     type: SHOW_MODAL,
-    modalStatus: status
+    modalID: ID
   }
 }

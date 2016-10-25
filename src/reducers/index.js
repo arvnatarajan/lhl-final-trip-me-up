@@ -90,10 +90,10 @@ const reducers = {
     }
   },
 
-  modalStatus: (state = false, action) => {
+  modalID: (state = null, action) => {
     switch (action.type) {
       case SHOW_MODAL:
-        return action.modalStatus
+        return action.modalID
       default:
         return state
     }

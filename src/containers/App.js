@@ -34,7 +34,8 @@ const mapStateToProps = (state) => {
   return {
     trips: state.userTrips,
     days: state.tripDays,
-    user: state.user
+    user: state.user,
+    modalStatus: state.modalStatus
   }
 }
 

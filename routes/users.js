@@ -49,7 +49,7 @@ module.exports = (knex) => {
     let t_id = req.params.trip_id
     let d_id = req.params.day_id
     knex
-      .select('day_id','events.id','event_type', 'start_time', 'end_time', 'event_description')
+      .select('day_id','events.id','event_type', 'start_time', 'end_time', 'event_description', 'event_title')
       .from('events')
       .join('days', 'days.id', '=', 'events.day_id')
       .join('trips', 'trips.id', '=', 'days.trip_id')

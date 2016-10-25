@@ -1,34 +1,33 @@
 import React, {PropTypes} from 'react';
+import { connect } from 'react-redux'
+import { showModal } from '../actions/index'
 import moment from 'moment';
+import EventCard from './EventCard'
+import NewEventForm from './NewEventForm'
+import { Button, Modal } from 'react-bootstrap';
 
 class DayCard extends React.Component {
-
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   showChildren: false
-    // }
-  }
-
-  handleClick = () => {
-    if (this.state.showChildren) {
-      this.setState({showChildren: false});
-    }
-    else {
-      this.setState({showChildren: true});
-    }
   }
 
   handleEventSubmit = (activity) => {
 
   }
 
+  openNewEventForm = () => {
+    this.props.showModal(this.props.day.id)
+    console.log('clicked')
+  }
+
+  closeNewEventForm = () => {
+    this.props.showModal(null)
+    console.log('clicked')
+  }
+
   render(){
     let date = moment.utc(this.props.day.date).format("DD MMM YYYY");
     let dayEndLoc;
-
-    // console.log(this.getDayEvents(this.props.events, this.props.day.id));
 
     if (this.props.day.day_start_location === this.props.day.day_end_location) {
       dayEndLoc = '';
@@ -53,7 +52,30 @@ class DayCard extends React.Component {
             <p>Click here for day details</p>
           </footer>
         </div>
-
+        <div className="events-container" >
+          <Button
+              bsStyle="primary"
+              bsSize="small"
+              className="event-new-trip-button"
+              onClick={this.openNewEventForm}
+            >Add a new activity!
+          </Button>
+          <Modal show={ this.props.day.id === this.props.modalID } onHide={this.closeNewEventForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
+            <Modal.Header closeButton>
+              <Modal.Title id="contained-modal-title-lg">Add a new event</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <NewEventForm
+                onSubmit={this.handleSubmit}
+              />
+            </Modal.Body>
+            <Modal.Footer>
+            </Modal.Footer>
+          </Modal>
+          {this.props.events.map((event, i) =>
+            <EventCard key={i} index={i} event={event}/>
+          )}
+        </div>
       </div>
     )
   }
@@ -63,4 +85,16 @@ class DayCard extends React.Component {
 //   index: PropTypes.number.isRequired
 // }
 
-export default DayCard;
+const mapStateToProps = (state) => {
+  return {
+    modalID: state.modalID
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    showModal: (status) => dispatch(showModal(status))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DayCard)

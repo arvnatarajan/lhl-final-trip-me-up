@@ -17,7 +17,7 @@ class TripDays extends React.Component {
     return (
       <div className="days-container">
       {this.props.days.map((item, i) =>
-        <DayCard key={i} index={i} day={item} events={this.props.events}/>
+        <DayCard key={i} index={i} day={item} events={this.getDayEvents(this.props.events, item.id)}/>
       )}
       </div>
     )

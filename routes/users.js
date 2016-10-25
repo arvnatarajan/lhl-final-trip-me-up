@@ -43,6 +43,7 @@ module.exports = (knex) => {
     });
   });
 
+
   router.get("/:user_id/trips/:trip_id/events", (req, res) => {
     let u_id = req.params.user_id
     let t_id = req.params.trip_id

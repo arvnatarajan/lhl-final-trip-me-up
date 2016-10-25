@@ -104,11 +104,11 @@ export function fetchTrips(user_id, trips) {
   }
 }
 
-export function fetchDays(trip_id, days) {
+export function fetchDays(user_id, trip_id, days) {
   return function (dispatch) {
     dispatch(requestDays())
 
-    return fetch(`http://localhost:8080/api/users/1/trips/${trip_id}/${days}`)
+    return fetch(`http://localhost:8080/api/users/${user_id}/trips/${trip_id}/${days}`)
       .then(response => response.json())
       .then(response => {
         dispatch(receiveDays(response))

@@ -4,28 +4,41 @@ import { fetchDays, fetchEvents } from '../actions/index'
 import TripDays from '../components/TripDays'
 
 class Trip extends React.Component {
+
   constructor(props) {
     super(props)
   }
 
+  // componentWillMount() {
+  //   this.setState({user_id: this.props.user_id});
+  // }
+
   componentDidMount() {
-    this.props.fetchDays(2, 'days')
-    this.props.fetchEvents(2, 'events')
+
+    const { user } = this.props
+    let trip_id = this.props.params.trip_id
+    let user_id = user[0] ? user[0].id : null
+
+    this.props.fetchEvents(trip_id, 'events')
+
+    if (user[0]) {
+      this.props.fetchDays(user_id, trip_id, 'days')
+    }
   }
 
   render(){
     const { days, events } = this.props
     return(
       <div>
-      Trip id: 2
-      <TripDays
-        days={days ? days : [{title: 'Loading..'}]}
-        events={events ? events : [{title: 'Loading..'}]}
-      />
+        <TripDays
+          days={days ? days : [{title: 'Loading..'}]}
+          events={events ? events : [{title: 'Loading..'}]}
+        />
       </div>
     )
   }
 }
+
 
 const mapStateToProps = (state) => {
   return {
@@ -37,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchDays: (trip_id, days) => dispatch(fetchDays(trip_id, days)),
+    fetchDays: (user_id, trip_id, days) => dispatch(fetchDays(user_id, trip_id, days)),
     fetchEvents: (trip_id, events) => dispatch(fetchEvents(trip_id, events))
   }
 }

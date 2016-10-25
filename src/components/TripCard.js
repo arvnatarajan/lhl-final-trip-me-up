@@ -6,7 +6,7 @@ const TripCard = ({ trip, index }) => {
   let tripStart = moment.utc(trip.trip_start).format("DD MMM YYYY");
   let tripEnd = moment.utc(trip.trip_end).format("DD MMM YYYY");
   return (
-    <Link to="trip/1">
+    <Link to={"trip/" + trip.id}>
       <div className="trip-card" >
         <div className="trip-card-container">
           <header className="trip-card-header">

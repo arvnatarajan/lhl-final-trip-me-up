@@ -44,6 +44,7 @@ module.exports = (knex) => {
   });
 
   router.get("/:user_id/trips/:trip_id/days/:day_id", (req, res) => {
+    console.log('got into get days')
     let u_id = req.params.user_id
     let t_id = req.params.trip_id
     let d_id = req.params.day_id

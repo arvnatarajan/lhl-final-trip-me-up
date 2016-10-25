@@ -1,24 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchDays } from '../actions/index'
+import { fetchDays, fetchUser } from '../actions/index'
 import TripDays from '../components/TripDays'
 
 class Trip extends React.Component {
+
   constructor(props) {
     super(props)
   }
 
+  // componentWillMount() {
+  //   this.setState({user_id: this.props.user_id});
+  // }
+
   componentDidMount() {
-    const { store } = this.context
-    const { dispatch } = this.props
+    const { dispatch, user } = this.props
+    let trip_id = this.props.params.trip_id
+    // let user_id = user[0] ? user[0].id : null;
+    if (user[0]) {
+      dispatch(fetchDays(user_id, trip_id, 'days'))
+      .then(() => console.log('state after fetchdays: ', store.getState()))
+      .catch((err) => console.log('failed to fetch days for trip') )
     }
+  }
 
   render(){
     const { days } = this.props
     return(
       <div>
-      Trip id: 2
-      <TripDays days={days ? days : [{title: 'Loading..'}]}/>
+        <TripDays days={days ? days : [{title: 'Loading..'}]}/>
       </div>
     )
   }
@@ -27,6 +37,12 @@ class Trip extends React.Component {
 
 Trip.contextTypes = {
   store: React.PropTypes.object
+}
+
+Trip.DefaultProps = {
+  user: {
+    id: null
+  }
 }
 
 const mapStateToProps = (state) => {

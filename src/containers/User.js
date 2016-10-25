@@ -92,6 +92,7 @@ const mapStateToProps = (state) => {
     trips: state.userTrips,
     user: state.user,
     showModal: state.showModal
+
   }
 }
 

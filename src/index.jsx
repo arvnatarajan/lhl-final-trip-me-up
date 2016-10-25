@@ -46,7 +46,4 @@ store
   .dispatch(fetchTrips(user_id, 'trips'))
   .then(() => console.log('state after fetchtrips: ', store.getState()))
 
-let trip_id = 2
-store
-  .dispatch(fetchDays(trip_id, 'days'))
-  .then(() => console.log('state after fetchdays: ', store.getState()))
+

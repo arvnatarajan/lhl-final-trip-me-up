@@ -41,6 +41,7 @@ class User extends React.Component {
     .then(response => {
       response.json()
       this.props.showModal(false)
+      this.props.fetchTrips(1, 'trips')
     })
     .catch(err => console.log(err))
   }

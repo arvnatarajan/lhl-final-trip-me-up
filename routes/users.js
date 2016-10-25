@@ -23,6 +23,7 @@ module.exports = (knex) => {
       .select("*")
       .from("trips")
       .where('user_id', u_id)
+      .orderBy('trip_start', 'desc')
       .then((results) => {
         res.json(results);
     });

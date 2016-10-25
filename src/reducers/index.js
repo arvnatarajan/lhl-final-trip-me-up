@@ -5,6 +5,8 @@ import {  RECEIVE_TRIPS,
           REQUEST_TRIPS,
           RECEIVE_DAYS,
           REQUEST_DAYS,
+          RECEIVE_EVENTS,
+          REQUEST_EVENTS,
           REQUEST_USER,
           RECEIVE_USER,
           SHOW_MODAL,
@@ -19,7 +21,7 @@ const reducers = {
   requestTripsLoading: (state = {}, action) => {
     switch (action.type) {
       case REQUEST_TRIPS:
-        return {...state, status: action.status}
+        return {status: action.status}
       default:
         return state
     }
@@ -28,7 +30,16 @@ const reducers = {
   requestDaysLoading: (state = {}, action) => {
     switch (action.type) {
       case REQUEST_DAYS:
-        return {...state, status: action.status}
+        return {status: action.status}
+      default:
+        return state
+    }
+  },
+
+  requestEventsLoading: (state = {}, action) => {
+    switch (action.type) {
+      case REQUEST_EVENTS:
+        return {status: action.status}
       default:
         return state
     }
@@ -37,7 +48,7 @@ const reducers = {
   requestUserLoading: (state = {}, action) => {
     switch (action.type) {
       case REQUEST_USER:
-        return {...state, status: action.status}
+        return {status: action.status}
       default:
         return state
     }
@@ -46,7 +57,7 @@ const reducers = {
   user: (state = [], action) => {
     switch (action.type) {
       case RECEIVE_USER:
-        return [...state, ...action.user]
+        return action.user
       default:
         return state
     }
@@ -55,7 +66,7 @@ const reducers = {
   userTrips: (state = [], action) => {
     switch (action.type) {
       case RECEIVE_TRIPS:
-        return [...state, ...action.trips]
+        return action.trips
       default:
         return state
     }
@@ -64,17 +75,25 @@ const reducers = {
   tripDays: (state = [], action) => {
     switch (action.type) {
       case RECEIVE_DAYS:
-        return [...state, ...action.days]
+        return action.days
       default:
         return state
     }
   },
 
+  tripEvents: (state = [], action) => {
+    switch (action.type) {
+      case RECEIVE_EVENTS:
+        return action.tripEvents
+      default:
+        return state
+    }
+  },
 
-  showModal: (state = {}, action) => {
+  modalStatus: (state = false, action) => {
     switch (action.type) {
       case SHOW_MODAL:
-        return {...state, ...action.showModal}
+        return action.modalStatus
       default:
         return state
     }
@@ -83,7 +102,7 @@ const reducers = {
   showDayDropdown: (state = {}, action) => {
     switch (action.type) {
       case SHOW_DAY_DROPDOWN:
-        return {...state, ...action.showDayDropdown}
+        return action.showDayDropdown
       default:
         return state
     }

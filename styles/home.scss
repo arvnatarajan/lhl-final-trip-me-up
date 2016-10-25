@@ -117,6 +117,16 @@ input {
   flex-direction: column;
 }
 
+.original-hidden {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.original-show {
+  display: block;
+  transition: all 0.5s ease;
+}
+
 .day-card {
   border: 1px solid lightgrey;
   transition: 0.3s;

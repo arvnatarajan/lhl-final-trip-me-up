@@ -11,30 +11,20 @@ class User extends React.Component {
   }
 
   componentDidMount() {
-    const { store } = this.context
-    const { dispatch } = this.props
+    this.props.fetchTrips(1, 'trips')
   }
 
   openNewTripForm = () => {
-    const { store } = this.context
-    const { dispatch } = this.props
-    store.dispatch(showModal(true))
+    this.props.showModal(true)
     console.log('clicked')
-    console.log(store.getState(), 'open')
   }
 
   closeNewTripForm = () => {
-    const { store } = this.context
-    const { dispatch } = this.props
-    store.dispatch(showModal(false))
+    this.props.showModal(false)
     console.log('clicked')
-    console.log(store.getState(), 'close')
   }
 
   handleSubmit = (values) => {
-    const { store } = this.context
-    const { dispatch } = this.props
-
     fetch(`http://localhost:8080/api/users/1/trips/new`, {
       method:'POST',
       headers: {
@@ -51,11 +41,11 @@ class User extends React.Component {
     .then(response => response.json())
     .catch(err => console.log(err))
 
-    store.dispatch(showModal(false))
+    this.props.showModal(false)
   }
 
   render() {
-    const { trips, user, modal } = this.props
+    const { trips, user, modalStatus } = this.props
     return (
       <div>
         <Button
@@ -64,7 +54,7 @@ class User extends React.Component {
             onClick={this.openNewTripForm}
           >Create your next trip!
         </Button>
-        <Modal {...this.props} show={ modal } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
+        <Modal show={ modalStatus } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">Create a trip</Modal.Title>
           </Modal.Header>
@@ -83,16 +73,19 @@ class User extends React.Component {
   }
 }
 
-User.contextTypes = {
-  store: React.PropTypes.object
-}
-
 const mapStateToProps = (state) => {
   return {
     trips: state.userTrips,
     user: state.user,
-    showModal: state.showModal
+    modalStatus: state.modalStatus
   }
 }
 
-export default connect(mapStateToProps)(User)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchTrips: (trip_id, trips) => dispatch(fetchTrips(trip_id, trips)),
+    showModal: (status) => dispatch(showModal(status))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(User)

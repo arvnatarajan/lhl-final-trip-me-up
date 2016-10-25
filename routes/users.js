@@ -32,7 +32,7 @@ module.exports = (knex) => {
     let u_id = req.params.user_id
     let t_id = req.params.trip_id
     knex
-      .select('date', 'day_start_location', 'day_end_location', 'day_img_url')
+      .select('days.id', 'date', 'day_start_location', 'day_end_location', 'day_img_url')
       .from('days')
       .join('trips', 'trips.id', '=', 'days.trip_id')
       .join('users', 'users.id', '=', 'trips.user_id')
@@ -43,19 +43,18 @@ module.exports = (knex) => {
     });
   });
 
-  router.get("/:user_id/trips/:trip_id/days/:day_id", (req, res) => {
+  router.get("/:user_id/trips/:trip_id/events", (req, res) => {
     let u_id = req.params.user_id
     let t_id = req.params.trip_id
     let d_id = req.params.day_id
     knex
-      .select('event_type', 'start_time', 'end_time', 'event_description')
+      .select('day_id','events.id','event_type', 'start_time', 'end_time', 'event_description')
       .from('events')
       .join('days', 'days.id', '=', 'events.day_id')
       .join('trips', 'trips.id', '=', 'days.trip_id')
       .join('users', 'users.id', '=', 'trips.user_id')
       .where('user_id', u_id)
       .andWhere('trip_id', t_id)
-      .andWhere('day_id', d_id)
       .then((results) => {
         res.json(results);
     });

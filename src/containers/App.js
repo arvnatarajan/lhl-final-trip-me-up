@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchTrips, fetchDays } from '../actions/index'
+import { fetchTrips, fetchDays, fetchUser } from '../actions/index'
 import Navbar from '../components/Navbar'
 import User from './User'
 import { Link } from 'react-router'
@@ -11,8 +11,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const { store } = this.context
-    const { dispatch } = this.props
+    this.props.fetchUser(1)
   }
 
   navigate(){
@@ -21,7 +20,6 @@ class App extends React.Component {
 
   render() {
     const { trips, user, days } = this.props
-    const { store } = this.context
     return (
       <div>
         <Navbar user={user ? user : ['first_name': 'sign in']} />
@@ -32,10 +30,6 @@ class App extends React.Component {
   }
 }
 
-App.contextTypes = {
-  store: React.PropTypes.object
-}
-
 const mapStateToProps = (state) => {
   return {
     trips: state.userTrips,
@@ -44,4 +38,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchUser: (id) => dispatch(fetchUser(id)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

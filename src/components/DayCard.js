@@ -1,29 +1,24 @@
 import React, {PropTypes} from 'react';
 import { connect } from 'react-redux'
-import { showModal } from '../actions/index'
 import moment from 'moment';
-import EventCard from './EventCard'
-import NewEventForm from './NewEventForm'
-import { Button, Modal } from 'react-bootstrap';
+
+import DayEvents from './DayEvents'
+import { showDayDropdown } from '../actions/days'
+
 
 class DayCard extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  handleEventSubmit = (activity) => {
-
+  handleShowEvents = () => {
+    if (this.props.showEventsForDay) {
+      this.props.showDayDropdown(null)
+    } else {
+      this.props.showDayDropdown(this.props.day.id)
+    }
   }
 
-  openNewEventForm = () => {
-    this.props.showModal(this.props.day.id)
-    console.log('clicked')
-  }
-
-  closeNewEventForm = () => {
-    this.props.showModal(null)
-    console.log('clicked')
-  }
 
   render(){
     let date = moment.utc(this.props.day.date).format("DD MMM YYYY");
@@ -37,63 +32,47 @@ class DayCard extends React.Component {
 
     return (
       <div className="day-card" >
+
         <div className="day-card-container">
+
           <img className="day-card-img" src={this.props.day.day_img_url}/>
+
           <header className="day-card-header">
             <p>{this.props.day.day_start_location}</p>
             <p>{dayEndLoc}</p>
           </header>
+
           <div className="day-card-details">
             <div className="day-card-dates">
               <div>{date}</div>
             </div>
           </div>
-          <footer className="day-card-footer" onClick={() => this.handleClick()}>
-            <p>Click here for day details</p>
+
+          <footer className="day-card-footer">
+            <button type="button" onClick={this.handleShowEvents}>...</button>
           </footer>
+
         </div>
-        <div className="events-container" >
-          <Button
-              bsStyle="primary"
-              bsSize="small"
-              className="event-new-trip-button"
-              onClick={this.openNewEventForm}
-            >Add a new activity!
-          </Button>
-          <Modal show={ this.props.day.id === this.props.modalID } onHide={this.closeNewEventForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title-lg">Add a new event</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <NewEventForm
-                onSubmit={this.handleSubmit}
-              />
-            </Modal.Body>
-            <Modal.Footer>
-            </Modal.Footer>
-          </Modal>
-          {this.props.events.map((event, i) =>
-            <EventCard key={i} index={i} event={event}/>
-          )}
-        </div>
+
+        <DayEvents className={this.props.showEventsForDay === this.props.day.id ? "event-dropdown" : ""} events={this.props.events} day={this.props.day}/>
+
       </div>
     )
   }
 }
-// DayCard.propTypes = {
-//   day: PropTypes.object.isRequired,
-//   index: PropTypes.number.isRequired
-// }
+
+DayCard.propTypes = {
+}
 
 const mapStateToProps = (state) => {
   return {
-    modalID: state.modalID
+    showEventsForDay: state.showEventsForDay
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    showModal: (status) => dispatch(showModal(status))
+    showDayDropdown: (id) => dispatch(showDayDropdown(id))
   }
 }
 

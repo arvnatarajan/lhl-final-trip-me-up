@@ -26,7 +26,7 @@ export const DELETED_EVENT = 'DELETED_EVENT'
 export const deletedEvent = (id) => {
   return {
     type: DELETED_EVENT,
-    delete_event_id: id
+    deletedEventID: id
   }
 }
 
@@ -50,7 +50,7 @@ export function toDeleteEvent(id) {
     return fetch(`http://localhost:8080/api/users/events/${id}`)
       .then(response => response.json())
       .then(response => {
-        dispatch(deletedEvent(response))
+        dispatch(deletedEvent(JSON.parse(response)))
       })
   }
 }

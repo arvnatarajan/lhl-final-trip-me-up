@@ -5,6 +5,7 @@ import { Button, Modal } from 'react-bootstrap';
 import NewEventForm from './NewEventForm'
 import EventCard from './EventCard'
 import { showModal } from '../actions/forms'
+import { deletedEvent } from '../actions/events'
 import { toDeleteEvent } from '../actions/events'
 
 
@@ -85,14 +86,15 @@ class DayEvents extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    modalID: state.modalID
+    modalID: state.modalID,
+    deletedEventID: state.deletedEventID
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     showModal: (id) => dispatch(showModal(id)),
-    del: (id) => dispatch(toDeleteEvent(id))
+    del: (id) => dispatch(toDeleteEvent(id)),
   }
 }
 

@@ -1,9 +1,7 @@
 import React, {PropTypes} from 'react';
 import moment from 'moment';
 
-const EventCard = ({ event, del }) => {
-console.log(event.id)
-console.log(del)
+const EventCard = ({ event, del, deletedEvent }) => {
   return (
     <div className="event-card" >
       <div className="event-details">

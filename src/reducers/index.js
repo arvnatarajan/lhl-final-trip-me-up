@@ -20,6 +20,10 @@ import {  RECEIVE_TRIPS,
           SHOW_DAY_DROPDOWN
         } from '../actions/index'
 
+const initialState = {
+  tripEvents: []
+}
+
 
 const reducers = {
 
@@ -92,6 +96,15 @@ const reducers = {
     switch (action.type) {
       case RECEIVE_EVENTS:
         return action.tripEvents
+      case DELETED_EVENT:
+        if (action.deletedEventID) {
+          let remainingEvents = state.filter( (event) => {
+            return event.id != action.deletedEventID
+          })
+          return remainingEvents
+        } else {
+          return state
+        }
       default:
         return state
     }
@@ -100,20 +113,12 @@ const reducers = {
   deletingEventId: (state = null, action) => {
     switch (action.type) {
       case WILL_DELETE_EVENT:
-        return action.delete_event_id
+        return {status: action.status}
       default:
         return state
     }
   },
 
-  deletedEventId: (state = null, action) => {
-    switch (action.type) {
-      case DELETED_EVENT:
-        return action.delete_event_id
-      default:
-        return state
-    }
-  },
 
   modalID: (state = null, action) => {
     switch (action.type) {

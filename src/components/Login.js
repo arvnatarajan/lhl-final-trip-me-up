@@ -43,7 +43,7 @@ class Login extends React.Component {
           </button>
 
           {errorMessage &&
-            <p>errorMessage</p>
+            <p className="error-message">{errorMessage}</p>
           }
         </div>
       </div>

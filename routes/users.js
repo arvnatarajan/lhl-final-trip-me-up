@@ -139,9 +139,8 @@ module.exports = (knex) => {
 
   router.post("/sessions/create", (req, res) => {
     checkForUser(req, (results) => {
-      console.log(results)
-      if (!results) {
-        return res.status(401).send("User does not exist")
+      if (!results[0]) {
+        return res.status(401).send({message: "User does not exist"})
       } else {
         return res.status(201).send({
           id_token: createToken(results)

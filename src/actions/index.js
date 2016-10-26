@@ -33,6 +33,24 @@ import {
   receiveUser,
   fetchUser } from './users'
 
+import {
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  requestLogin,
+  receiveLogin,
+  loginUser,
+  loginError
+} from './users-login'
+
+import {
+  LOGOUT_REQUEST,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAILURE,
+  requestLogout,
+  receiveLogout,
+  logoutUser
+} from './users-logout'
 
 export {
   SHOW_MODAL, showModal,
@@ -40,6 +58,8 @@ export {
   REQUEST_DAYS, RECEIVE_DAYS, SHOW_DAY_DROPDOWN, requestDays, receiveDays, showDayDropdown,
   REQUEST_EVENTS, RECEIVE_EVENTS, requestEvents, receiveEvents,
   REQUEST_USER, RECEIVE_USER, requestUser, receiveUser,
+  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, requestLogin, receiveLogin, loginError, loginUser,
+  LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE, requestLogout, receiveLogout, logoutUser,
   fetchUser,
   fetchTrips,
   fetchDays,

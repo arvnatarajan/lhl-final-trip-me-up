@@ -1,7 +1,12 @@
 "use strict";
 
-const express = require('express');
-const router  = express.Router();
+require('dotenv').config();
+
+const express     = require('express');
+const router      = express.Router();
+const jwt         = require('jsonwebtoken');
+const _           = require('lodash');
+const JWT_SECRET  = process.env.JWT_SECRET;
 
 module.exports = (knex) => {
 
@@ -120,6 +125,7 @@ module.exports = (knex) => {
     })
   });
 
+
   router.get("/events/:id", (req, res) => {
     let e_id = req.params.id
     knex
@@ -132,6 +138,32 @@ module.exports = (knex) => {
   });
 
 
+  router.post("/sessions/create", (req, res) => {
+    checkForUser(req, (results) => {
+      console.log(results)
+      if (!results) {
+        return res.status(401).send("User does not exist")
+      } else {
+        return res.status(201).send({
+          id_token: createToken(results)
+        })
+      }
+    })
+  })
+
+  function checkForUser(req, _done) {
+    knex('users')
+      .returning('*')
+      .select('*')
+      .where('email', req.body.email)
+      .andWhere('password_salted', req.body.password)
+      .then(_done)
+  }
 
   return router;
+}
+
+
+function createToken(user) {
+  return jwt.sign(_.omit(user, 'password_salted'), JWT_SECRET, { expiresIn: 60*60*5 });
 }

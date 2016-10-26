@@ -14,6 +14,7 @@ export const receiveUser = (user) => {
   }
 }
 
+
 export function fetchUser(user_id) {
   return function (dispatch) {
     dispatch(requestUser())

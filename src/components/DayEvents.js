@@ -15,16 +15,34 @@ class DayEvents extends React.Component {
 
   openNewEventForm = () => {
     this.props.showModal(this.props.day.id)
-    this.props.toDeleteEvent(5)
   }
 
   closeNewEventForm = () => {
     this.props.showModal(null)
   }
 
-  handleEventSubmit = (activity) => {
-
+  handleSubmit = (dayInfo) => {
+    fetch(`http://localhost:8080/api/users/events/new`, {
+      method:'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        day_id: this.props.day.id,
+        start_time: dayInfo.event_start,
+        end_time: dayInfo.event_end,
+        event_title: dayInfo.event_title,
+        event_description: dayInfo.event_description,
+        event_type: dayInfo.event_type
+      })
+    })
+    .then(response => {
+      response.json()
+      this.props.showModal(null)
+    })
+    .catch(err => console.log(err))
   }
+
 
   render() {
     let newClassName = `${this.props.className} events-container`
@@ -57,7 +75,7 @@ class DayEvents extends React.Component {
       </Modal>
 
       {this.props.events.map((event, i) =>
-        <EventCard key={i} index={i} event={event}  />
+        <EventCard key={i} index={i} event={event} del={this.props.del} />
       )}
 
       </div>
@@ -67,15 +85,14 @@ class DayEvents extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    modalID: state.modalID,
-    del: state.del
+    modalID: state.modalID
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     showModal: (id) => dispatch(showModal(id)),
-    toDeleteEvent: (id) => dispatch(toDeleteEvent(id))
+    del: (id) => dispatch(toDeleteEvent(id))
   }
 }
 

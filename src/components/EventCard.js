@@ -1,23 +1,22 @@
 import React, {PropTypes} from 'react';
 import moment from 'moment';
-import { toDeleteEvent } from '../actions/events'
 
-const EventCard = ({ event }) => {
+const EventCard = ({ event, del }) => {
+console.log(event.id)
+console.log(del)
   return (
     <div className="event-card" >
       <div className="event-details">
         {event.event_type}: {event.event_title} - {event.event_description}
+        <button onClick= {() => { del(event.id) } } > Delete </button>
       </div>
-      <button > Delete </button>
+
     </div>
   )
 }
 
 EventCard.propTypes = {
-  event: PropTypes.object.isRequired,
-  del: PropTypes.func.isRequired
+  event: PropTypes.object.isRequired
 }
-
-
 
 export default EventCard;

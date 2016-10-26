@@ -21,28 +21,6 @@ class DayCard extends React.Component {
   }
 
 
-  handleSubmit = (dayInfo) => {
-    fetch(`http://localhost:8080/api/users/events/new`, {
-      method:'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        day_id: this.props.day.id,
-        start_time: dayInfo.event_start,
-        end_time: dayInfo.event_end,
-        event_title: dayInfo.event_title,
-        event_description: dayInfo.event_description,
-        event_type: dayInfo.event_type
-      })
-    })
-    .then(response => {
-      response.json()
-      this.props.showModal(null)
-    })
-    .catch(err => console.log(err))
-  }
-
   render(){
     let date = moment.utc(this.props.day.date).format("DD MMM YYYY");
     let dayEndLoc;

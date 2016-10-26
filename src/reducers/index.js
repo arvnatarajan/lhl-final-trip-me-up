@@ -99,10 +99,10 @@ const reducers = {
     }
   },
 
-  showDayDropdown: (state = {}, action) => {
+  showEventsForDay: (state = null, action) => {
     switch (action.type) {
       case SHOW_DAY_DROPDOWN:
-        return action.showDayDropdown
+        return action.showEventsForDay
       default:
         return state
     }

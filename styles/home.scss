@@ -109,7 +109,6 @@ input {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-
 .days-container {
   display: flex;
   flex-wrap: wrap;
@@ -128,13 +127,13 @@ input {
 }
 
 .day-card {
-  border: 1px solid lightgrey;
   transition: 0.3s;
-  background-color: white;
   margin: 10px 10%;
   width: 80%;
 
   .day-card-container {
+    border: 1px solid lightgrey;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -165,18 +164,19 @@ input {
     }
 
     .day-card-footer {
+      align-self: flex-end;
       padding: 5px;
     }
   }
 }
 
-.day-card:hover {
+.day-card-container:hover, .events-container:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-
-
 .events-container {
+  border: 1px solid lightgrey;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -206,4 +206,8 @@ input {
 
     }
   }
+}
+
+.event-dropdown {
+    visibility: hidden;
 }

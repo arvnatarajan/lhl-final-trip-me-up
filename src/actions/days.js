@@ -1,8 +1,8 @@
 export const SHOW_DAY_DROPDOWN = 'SHOW_DAY_DROPDOWN'
-export const showDayDropdown = (status) => {
+export const showDayDropdown = (ID) => {
   return {
     type: SHOW_DAY_DROPDOWN,
-    showDayDropdown: status
+    showEventsForDay: ID
   }
 }
 

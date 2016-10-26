@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
-import DayCard from './DayCard'
 import { Accordion } from 'react-bootstrap';
+
+import DayCard from './DayCard'
 
 class TripDays extends React.Component {
   constructor(props) {

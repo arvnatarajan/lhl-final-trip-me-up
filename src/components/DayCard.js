@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import DayEvents from './DayEvents'
 import { showDayDropdown } from '../actions/days'
+import { loginUser } from '../actions/users'
 
 
 class DayCard extends React.Component {

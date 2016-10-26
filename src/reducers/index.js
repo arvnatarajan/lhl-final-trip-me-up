@@ -9,6 +9,11 @@ import {  RECEIVE_TRIPS,
           REQUEST_EVENTS,
           REQUEST_USER,
           RECEIVE_USER,
+          LOGIN_REQUEST,
+          LOGIN_SUCCESS,
+          LOGIN_FAILURE,
+          LOGOUT_REQUEST,
+          LOGOUT_SUCCESS,
           SHOW_MODAL,
           SHOW_DAY_DROPDOWN
         } from '../actions/index'
@@ -103,6 +108,39 @@ const reducers = {
     switch (action.type) {
       case SHOW_DAY_DROPDOWN:
         return action.showEventsForDay
+      default:
+        return state
+    }
+  },
+
+  auth: (state = {
+    isFetching: false,
+    isAuthenticated: (localStorage.getItem('id_token') ? true : false)
+  }, action) => {
+    switch (action.type) {
+      case LOGIN_REQUEST:
+        return {
+          isFetching: true,
+          isAuthenticated: false,
+          user: action.creds
+        }
+      case LOGIN_SUCCESS:
+        return {
+          isFetching: false,
+          isAuthenticated: true,
+          errorMessage: ''
+        }
+      case LOGIN_FAILURE:
+        return {
+          isFetching: false,
+          isAuthenticated: false,
+          errorMessage: action.message
+        }
+      case LOGOUT_SUCCESS:
+        return {
+          isFetching: true,
+          isAuthenticated: false
+        }
       default:
         return state
     }

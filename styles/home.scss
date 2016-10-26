@@ -57,6 +57,7 @@ nav {
 
 input {
   padding: 3px;
+  color: black;
 }
 
 .carousel {
@@ -170,18 +171,22 @@ input {
   }
 }
 
-.day-card-container:hover, .events-container:hover {
+.day-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .events-container {
   border: 1px solid lightgrey;
+  border-top: none;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  visibility: hidden;
+  height: 0;
+  transition: all 1s transform ease;
 
   .event-new-trip-button {
     margin: 10px;
@@ -209,5 +214,7 @@ input {
 }
 
 .event-dropdown {
-    visibility: hidden;
+  visibility: visible;
+  height: 100%;
+  transition: all 1s transform ease;
 }

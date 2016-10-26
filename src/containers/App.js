@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchTrips, fetchDays, fetchUser } from '../actions/index'
+import { fetchTrips, fetchDays, fetchUser, loginUser, logoutUser } from '../actions/index'
 import Navbar from '../components/Navbar'
 import User from './User'
 import { Link } from 'react-router'
@@ -19,10 +19,16 @@ class App extends React.Component {
   }
 
   render() {
-    const { trips, user, days } = this.props
+    const { trips, user, days, loginUser, logoutUser, isAuthenticated, errorMessage } = this.props
     return (
       <div>
-        <Navbar user={user ? user : ['first_name': 'sign in']} />
+        <Navbar
+          user={user ? user : ['first_name': 'sign in']}
+          isAuthenticated={isAuthenticated}
+          errorMessage={errorMessage}
+          loginUser={loginUser}
+          logoutUser={logoutUser}
+        />
         <button onClick={this.navigate.bind(this)}> button </button>
         {this.props.children}
       </div>
@@ -35,13 +41,17 @@ const mapStateToProps = (state) => {
     trips: state.userTrips,
     days: state.tripDays,
     user: state.user,
-    modalStatus: state.modalStatus
+    modalStatus: state.modalStatus,
+    isAuthenticated: state.auth.isAuthenticated,
+    errorMessage: state.auth.errorMessage
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUser: (id) => dispatch(fetchUser(id)),
+    loginUser: (creds) => dispatch(loginUser(creds)),
+    logoutUser: () => dispatch(logoutUser())
   }
 }
 

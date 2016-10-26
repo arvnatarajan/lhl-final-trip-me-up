@@ -1,13 +1,14 @@
 import React from 'react';
 
 class Logout extends React.Component {
-  handleFormSubmit = (e) => {
-  }
-
   render() {
+    const { onLogoutClick } = this.props
+
     return (
       <div className="logout">
-        logout
+        <button onClick={() => onLogoutClick()}>
+          Logout
+        </button>
       </div>
     )
   }

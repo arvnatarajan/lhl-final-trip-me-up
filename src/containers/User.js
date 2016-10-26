@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchTrips, showModal } from '../actions/index'
+import { fetchTrips, showModal} from '../actions/index'
 import UserTrips from '../components/UserTrips'
 import NewTripForm from '../components/NewTripForm'
 import { Button, Modal } from 'react-bootstrap';
@@ -56,7 +56,7 @@ class User extends React.Component {
             onClick={this.openNewTripForm}
           >Create your next trip!
         </Button>
-        <Modal show={ modalID } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
+        <Modal show={ this.props.user[0].id === this.props.modalID  } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">Create a trip</Modal.Title>
           </Modal.Header>

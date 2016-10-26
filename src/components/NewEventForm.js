@@ -24,7 +24,11 @@ class NewEventForm extends Component {
         </div>
         <div>
           <label htmlFor="event_end">Event End</label>
-          <Field name="end_time" component="input" type="text"/>
+          <Field name="event_end" component="input" type="text"/>
+        </div>
+        <div>
+          <label htmlFor="event_type">Event Type</label>
+          <Field name="event_type" component="input" type="text"/>
         </div>
         <button type="submit">Submit</button>
       </form>

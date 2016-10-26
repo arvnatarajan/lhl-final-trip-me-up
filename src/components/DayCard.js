@@ -17,12 +17,33 @@ class DayCard extends React.Component {
 
   openNewEventForm = () => {
     this.props.showModal(this.props.day.id)
-    console.log('clicked')
   }
 
   closeNewEventForm = () => {
     this.props.showModal(null)
     console.log('clicked')
+  }
+
+  handleSubmit = (dayInfo) => {
+    fetch(`http://localhost:8080/api/users/events/new`, {
+      method:'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        day_id: this.props.day.id,
+        start_time: dayInfo.event_start,
+        end_time: dayInfo.event_end,
+        event_title: dayInfo.event_title,
+        event_description: dayInfo.event_description,
+        event_type: dayInfo.event_type
+      })
+    })
+    .then(response => {
+      response.json()
+      this.props.showModal(null)
+    })
+    .catch(err => console.log(err))
   }
 
   render(){

@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, propTypes } from 'redux-form';
 
 class NewTripForm extends Component {
   constructor(props) {

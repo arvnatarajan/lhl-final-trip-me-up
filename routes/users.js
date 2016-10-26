@@ -89,15 +89,31 @@ module.exports = (knex) => {
     });
   });
 
-
   router.post("/:user_id/trips/:trip_id/days/new", (req, res) => {
     knex('days')
+    .returning('id')
     .insert({
       trip_id: req.params.trip_id,
       date: req.body.date,
       day_start_location: req.body.day_start_location,
       day_end_location: req.body.day_end_location,
       day_img_url: req.body.day_img_url
+    })
+    .then((results) => {
+      res.json(results)
+    })
+  });
+
+  router.post("/events/new", (req, res) => {
+    knex('events')
+    .returning('id')
+    .insert({
+      day_id: req.body.day_id,
+      start_time: req.body.start_time,
+      end_time: req.body.end_time,
+      event_title: req.body.event_title,
+      event_description: req.body.event_description,
+      event_type: req.body.event_type
     })
     .then((results) => {
       res.json(results)

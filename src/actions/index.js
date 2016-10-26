@@ -22,7 +22,7 @@ import {
   RECEIVE_EVENTS,
   requestEvents,
   receiveEvents,
-  fetchEvents } from './events'
+  fetchEvents} from './events'
 
 import {
   REQUEST_USER,

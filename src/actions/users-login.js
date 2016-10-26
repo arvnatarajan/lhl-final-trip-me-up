@@ -45,13 +45,11 @@ export function loginUser(creds) {
         response.json().then(user => ({ user, response }))
             ).then(({ user, response }) =>  {
         if (!response.ok) {
-
           dispatch(loginError(user.message))
           return Promise.reject(user)
 
         } else {
           localStorage.setItem('id_token', user.id_token)
-
           dispatch(receiveLogin(user))
         }
       }).catch(err => console.log("Error: ", err))

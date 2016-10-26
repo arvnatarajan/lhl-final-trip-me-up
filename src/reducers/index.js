@@ -9,6 +9,8 @@ import {  RECEIVE_TRIPS,
           REQUEST_EVENTS,
           REQUEST_USER,
           RECEIVE_USER,
+          DELETED_EVENT,
+          WILL_DELETE_EVENT,
           SHOW_MODAL,
           SHOW_DAY_DROPDOWN
         } from '../actions/index'
@@ -85,6 +87,24 @@ const reducers = {
     switch (action.type) {
       case RECEIVE_EVENTS:
         return action.tripEvents
+      default:
+        return state
+    }
+  },
+
+  deletingEventId: (state = null, action) => {
+    switch (action.type) {
+      case WILL_DELETE_EVENT:
+        return action.delete_event_id
+      default:
+        return state
+    }
+  },
+
+  deletedEventId: (state = null, action) => {
+    switch (action.type) {
+      case DELETED_EVENT:
+        return action.delete_event_id
       default:
         return state
     }

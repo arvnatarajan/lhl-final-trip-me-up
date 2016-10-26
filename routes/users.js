@@ -120,6 +120,18 @@ module.exports = (knex) => {
     })
   });
 
+  router.get("/events/:id", (req, res) => {
+    let e_id = req.params.id
+    knex
+    .select('*')
+    .from('events')
+    .where('id', e_id)
+    .then((results) => {
+      res.json(results);
+    })
+  });
+
+
 
   return router;
 }

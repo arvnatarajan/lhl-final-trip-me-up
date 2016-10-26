@@ -20,8 +20,10 @@ import {
 import {
   REQUEST_EVENTS,
   RECEIVE_EVENTS,
+  DELETE_EVENTS,
   requestEvents,
   receiveEvents,
+  deleteEvents,
   fetchEvents} from './events'
 
 import {

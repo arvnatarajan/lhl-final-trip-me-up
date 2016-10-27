@@ -25,6 +25,15 @@ class User extends React.Component {
   }
 
   handleSubmit = (tripInfo) => {
+    const tripPicList = ['http://i64.tinypic.com/2mq7wya.jpg',
+                         'http://i64.tinypic.com/5dmipj.jpg',
+                         'http://i64.tinypic.com/2i8c4za.jpg',                     
+                         'http://i64.tinypic.com/2mq7wya.jpg',
+                         'http://i65.tinypic.com/34i332x.jpg']
+
+    let tripPic = tripPicList[Math.floor(Math.random()*tripPicList.length)];
+
+
     fetch(`http://localhost:8080/api/users/1/trips/new`, {
       method:'POST',
       headers: {
@@ -35,7 +44,8 @@ class User extends React.Component {
         trip_end: tripInfo.trip_end,
         trip_title: tripInfo.trip_title,
         trip_start_location: tripInfo.start_location,
-        trip_destination: tripInfo.destination
+        trip_destination: tripInfo.destination,
+        trip_img_url: tripPic
       })
     })
     .then(response => {

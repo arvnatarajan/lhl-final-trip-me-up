@@ -77,7 +77,8 @@ module.exports = (knex) => {
       trip_end: req.body.trip_end,
       trip_title: req.body.trip_title,
       trip_start_location: req.body.trip_start_location,
-      trip_destination: req.body.trip_destination
+      trip_destination: req.body.trip_destination,
+      trip_img_url: req.body.trip_img_url
     })
     .then((tripId) => {
       console.log(tripId)

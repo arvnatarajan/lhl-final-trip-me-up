@@ -24,7 +24,6 @@ class App extends React.Component {
           loginUser={loginUser}
           logoutUser={logoutUser}
         />
-        <Link to="user/1"> User </Link>
         {this.props.children}
       </div>
     )

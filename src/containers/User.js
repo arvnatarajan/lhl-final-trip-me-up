@@ -89,7 +89,8 @@ const mapStateToProps = (state) => {
   return {
     trips: state.userTrips.trips,
     user: state.user,
-    modalID: state.modalID
+    modalID: state.modalID,
+    isAuthenticated: state.auth.isAuthenticated
   }
 }
 

@@ -111,7 +111,7 @@ module.exports = (knex) => {
 
   router.post("/events/new", (req, res) => {
     knex('events')
-    .returning('id')
+    .returning(['day_id', 'start_time', 'end_time', 'event_title', 'event_title', 'event_description', 'event_type'])
     .insert({
       day_id: req.body.day_id,
       start_time: req.body.start_time,
@@ -126,7 +126,7 @@ module.exports = (knex) => {
   });
 
 
-  router.get("/events/:id", (req, res) => {
+  router.get("/delete-events/:id", (req, res) => {
     let e_id = req.params.id
     knex('events')
     .where('id', e_id)
@@ -135,7 +135,6 @@ module.exports = (knex) => {
       res.json(e_id);
     })
   });
-
 
   router.post("/sessions/create", (req, res) => {
     checkForUser(req, (results) => {
@@ -160,7 +159,6 @@ module.exports = (knex) => {
 
   return router;
 }
-
 
 function createToken(user) {
   return jwt.sign(_.omit(user, 'password_salted'), JWT_SECRET, { expiresIn: 60*60*5 });

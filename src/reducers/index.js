@@ -105,6 +105,8 @@ const reducers = {
         } else {
           return state
         }
+      case 'ADD_EVENT':
+        return [...state, action.newEvent]
       default:
         return state
     }

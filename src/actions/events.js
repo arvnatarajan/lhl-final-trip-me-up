@@ -30,11 +30,11 @@ export const deletedEvent = (id) => {
   }
 }
 
-export function fetchEvents(trip_id, events) {
+export function fetchEvents(trip_id) {
   return function (dispatch) {
     dispatch(requestEvents())
 
-    return fetch(`http://localhost:8080/api/users/1/trips/${trip_id}/${events}`)
+    return fetch(`http://localhost:8080/api/users/1/trips/${trip_id}/events`)
       .then(response => response.json())
       .then(response => {
         dispatch(receiveEvents(response))
@@ -47,7 +47,7 @@ export function toDeleteEvent(id) {
     dispatch(deletingEvent)
     console.log('hit deleteEvents function, will be fetching')
 
-    return fetch(`http://localhost:8080/api/users/events/${id}`)
+    return fetch(`http://localhost:8080/api/users/delete-events/${id}`)
       .then(response => response.json())
       .then(response => {
         dispatch(deletedEvent(JSON.parse(response)))

@@ -21,15 +21,15 @@ import api from './middleware/api'
 
 
 const loggerMiddleware = createLogger()
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-let store = createStore(rootReducer, composeEnhancers(
+
+let store = createStore(rootReducer,
   applyMiddleware(
     thunkMiddleware,
     api,
     loggerMiddleware
   )
-));
+);
 
 render(
   <Provider store={store}>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router'
+
 
 class Login extends React.Component {
 
@@ -12,6 +14,11 @@ class Login extends React.Component {
     }
 
     this.props.onLoginClick(creds)
+
+
+    setTimeout(() => {
+      this.props.router.push(`/user/${localStorage.getItem('user_id')}`)
+    }, 500);
   }
 
   render() {
@@ -48,4 +55,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

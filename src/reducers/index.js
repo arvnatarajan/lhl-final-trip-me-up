@@ -160,7 +160,8 @@ const reducers = {
         return {
           isFetching: false,
           isAuthenticated: true,
-          errorMessage: ''
+          errorMessage: '',
+          user_id: action.user_id
         }
       case LOGIN_FAILURE:
         return {

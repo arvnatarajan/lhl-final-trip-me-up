@@ -14,6 +14,7 @@ export const receiveTrips = (trips) => {
   return {
     type: RECEIVE_TRIPS,
     trips
+
   }
 }
 

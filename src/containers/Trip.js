@@ -14,7 +14,7 @@ class Trip extends React.Component {
 
     if (user[0]) {
       this.props.fetchDays(user_id, trip_id, 'days')
-      this.props.fetchEvents(trip_id, 'events')
+      this.props.fetchEvents(trip_id)
     }
   }
 
@@ -42,7 +42,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchDays: (user_id, trip_id, days) => dispatch(fetchDays(user_id, trip_id, days)),
-    fetchEvents: (trip_id, events) => dispatch(fetchEvents(trip_id, events))
+    fetchEvents: (trip_id) => dispatch(fetchEvents(trip_id))
   }
 }
 

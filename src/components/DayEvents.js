@@ -5,8 +5,7 @@ import { Button, Modal } from 'react-bootstrap';
 import NewEventForm from './NewEventForm'
 import EventCard from './EventCard'
 import { showModal } from '../actions/forms'
-import { toDeleteEvent } from '../actions/events'
-
+import { deletedEvent, toDeleteEvent, fetchEvents } from '../actions/events'
 
 class DayEvents extends React.Component {
   constructor(props) {
@@ -36,8 +35,10 @@ class DayEvents extends React.Component {
         event_type: dayInfo.event_type
       })
     })
-    .then(response => {
-      response.json()
+    .then(response => response.json())
+    .then(newActivity => {
+      console.log(newActivity[0], 'newActivity')
+      this.props.dispatch({type: 'ADD_EVENT', newEvent: newActivity[0]})
       this.props.showModal(null)
     })
     .catch(err => console.log(err))
@@ -85,14 +86,17 @@ class DayEvents extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    modalID: state.modalID
+    modalID: state.modalID,
+    deletedEventID: state.deletedEventID
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     showModal: (id) => dispatch(showModal(id)),
-    del: (id) => dispatch(toDeleteEvent(id))
+    del: (id) => dispatch(toDeleteEvent(id)),
+    fetchEvents: (trip_id) => dispatch(fetchEvents(trip_id)),
+    dispatch: (action) => dispatch(action)
   }
 }
 

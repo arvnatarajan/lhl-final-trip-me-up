@@ -22,7 +22,7 @@ import {
 import {
   REQUEST_EVENTS,
   RECEIVE_EVENTS,
-  DELETE_EVENTS,
+  DELETED_EVENT,
   requestEvents,
   receiveEvents,
   deleteEvents,
@@ -59,6 +59,7 @@ export {
   REQUEST_TRIPS, RECEIVE_TRIPS, requestTrips, receiveTrips,
   REQUEST_DAYS, RECEIVE_DAYS, SHOW_DAY_DROPDOWN, requestDays, receiveDays, showDayDropdown,
   REQUEST_EVENTS, RECEIVE_EVENTS, requestEvents, receiveEvents,
+  DELETED_EVENT,
   REQUEST_USER, RECEIVE_USER, requestUser, receiveUser,
   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, requestLogin, receiveLogin, loginError, loginUser,
   LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE, requestLogout, receiveLogout, logoutUser,

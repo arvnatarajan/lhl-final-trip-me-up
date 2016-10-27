@@ -111,7 +111,7 @@ module.exports = (knex) => {
 
   router.post("/events/new", (req, res) => {
     knex('events')
-    .returning(['day_id', 'start_time', 'end_time', 'event_title', 'event_title', 'event_description', 'event_type'])
+    .returning(['id', 'day_id', 'start_time', 'end_time', 'event_title', 'event_title', 'event_description', 'event_type'])
     .insert({
       day_id: req.body.day_id,
       start_time: req.body.start_time,

@@ -10,9 +10,9 @@ class Trip extends React.Component {
   componentDidMount() {
     const { user } = this.props
     let trip_id = this.props.params.trip_id
-    let user_id = user[0] ? user[0].id : null
+    let user_id = localStorage.getItem('user_id') ? localStorage.getItem('user_id') : null
 
-    if (user[0]) {
+    if (localStorage.getItem('user_id')) {
       this.props.fetchDays(user_id, trip_id, 'days')
       this.props.fetchEvents(trip_id)
     }

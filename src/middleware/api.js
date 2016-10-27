@@ -2,7 +2,7 @@ const BASE_URL = 'http://localhost:8080/api/users/'
 
 function callApi(endpoint, authenticated) {
 
-  let token = localStorage.getItem('id_token') || null
+  let token = localStorage.getItem('user_id') || null
   let config = {}
 
   if(authenticated) {

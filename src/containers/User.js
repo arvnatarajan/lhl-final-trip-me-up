@@ -11,11 +11,11 @@ class User extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchTrips(1, 'trips')
+    this.props.fetchTrips(localStorage.getItem('user_id'), 'trips')
   }
 
   openNewTripForm = () => {
-    this.props.showModal(this.props.user[0].id)
+    this.props.showModal(localStorage.getItem('user_id'))
     console.log('clicked')
   }
 
@@ -41,7 +41,7 @@ class User extends React.Component {
     .then(response => {
       response.json()
       this.props.showModal(null)
-      this.props.fetchTrips(1, 'trips')
+      this.props.fetchTrips(localStorage.getItem('user_id'), 'trips')
     })
     .catch(err => console.log(err))
   }
@@ -56,7 +56,7 @@ class User extends React.Component {
             onClick={this.openNewTripForm}
           >Create your next trip!
         </Button>
-        <Modal show={ this.props.user[0].id === this.props.modalID  } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
+        <Modal show={ localStorage.getItem('user_id') === this.props.modalID  } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">Create a trip</Modal.Title>
           </Modal.Header>

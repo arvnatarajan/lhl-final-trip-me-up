@@ -147,7 +147,7 @@ const reducers = {
 
   auth: (state = {
     isFetching: false,
-    isAuthenticated: (localStorage.getItem('id_token') ? true : false)
+    isAuthenticated: (localStorage.getItem('user_id') ? true : false)
   }, action) => {
     switch (action.type) {
       case LOGIN_REQUEST:

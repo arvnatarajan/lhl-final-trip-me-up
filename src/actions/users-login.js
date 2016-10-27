@@ -14,7 +14,7 @@ export const receiveLogin = (user) => {
     type: LOGIN_SUCCESS,
     isFetching: false,
     isAuthenticated: true,
-    id_token: user.id_token
+    user_id: user.user_id
   }
 }
 
@@ -49,7 +49,7 @@ export function loginUser(creds) {
           return Promise.reject(user)
 
         } else {
-          localStorage.setItem('id_token', user.id_token)
+          localStorage.setItem('user_id', user.user_id)
           dispatch(receiveLogin(user))
         }
       }).catch(err => console.log("Error: ", err))

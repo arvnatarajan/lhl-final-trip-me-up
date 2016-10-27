@@ -11,7 +11,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(1)
   }
 
   render() {

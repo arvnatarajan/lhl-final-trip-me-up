@@ -142,7 +142,7 @@ module.exports = (knex) => {
         return res.status(401).send({message: "User does not exist"})
       } else {
         return res.status(201).send({
-          id_token: createToken(results)
+          user_id: results[0].id
         })
       }
     })
@@ -160,6 +160,9 @@ module.exports = (knex) => {
   return router;
 }
 
-function createToken(user) {
-  return jwt.sign(_.omit(user, 'password_salted'), JWT_SECRET, { expiresIn: 60*60*5 });
-}
+
+
+// for later implementation
+// function createToken(user) {
+//   return jwt.sign(_.omit(user, 'password_salted'), JWT_SECRET, { expiresIn: 60*60*5 });
+// }

@@ -6,9 +6,6 @@ import TripDays from '../components/TripDays'
 
 class Trip extends React.Component {
 
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount() {
     const { user } = this.props

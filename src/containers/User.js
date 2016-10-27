@@ -77,7 +77,7 @@ class User extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    trips: state.userTrips,
+    trips: state.userTrips.trips,
     user: state.user,
     modalID: state.modalID
   }

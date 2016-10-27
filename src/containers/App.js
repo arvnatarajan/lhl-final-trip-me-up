@@ -14,10 +14,6 @@ class App extends React.Component {
     this.props.fetchUser(1)
   }
 
-  navigate(){
-    console.log(this.props.history)
-  }
-
   render() {
     const { trips, user, days, loginUser, logoutUser, isAuthenticated, errorMessage } = this.props
     return (
@@ -29,7 +25,7 @@ class App extends React.Component {
           loginUser={loginUser}
           logoutUser={logoutUser}
         />
-        <button onClick={this.navigate.bind(this)}> button </button>
+        <Link to="user/1"> User </Link>
         {this.props.children}
       </div>
     )

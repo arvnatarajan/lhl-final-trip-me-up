@@ -4,8 +4,10 @@ import { SHOW_MODAL, showModal } from './forms'
 import {
   REQUEST_TRIPS,
   RECEIVE_TRIPS,
+  CLEAR_TRIPS,
   requestTrips,
   receiveTrips,
+  clearTrips,
   fetchTrips } from './trips'
 
 import {

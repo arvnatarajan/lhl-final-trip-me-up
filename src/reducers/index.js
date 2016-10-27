@@ -3,6 +3,8 @@ import { reducer as formReducer } from 'redux-form'
 
 import {  RECEIVE_TRIPS,
           REQUEST_TRIPS,
+          FAILURE_TRIPS,
+          CLEAR_TRIPS,
           RECEIVE_DAYS,
           REQUEST_DAYS,
           RECEIVE_EVENTS,
@@ -24,15 +26,6 @@ import {  RECEIVE_TRIPS,
 const reducers = {
 
   form: formReducer,     // <---- Mounted at 'form'
-
-  requestTripsLoading: (state = {}, action) => {
-    switch (action.type) {
-      case REQUEST_TRIPS:
-        return {status: action.status}
-      default:
-        return state
-    }
-  },
 
   requestDaysLoading: (state = {}, action) => {
     switch (action.type) {
@@ -70,9 +63,21 @@ const reducers = {
     }
   },
 
-  userTrips: (state = [], action) => {
+  userTrips: (state = {
+    isFetching: false,
+    trips: []
+  }, action) => {
     switch (action.type) {
+      case REQUEST_TRIPS:
+        return {isFetching: true}
       case RECEIVE_TRIPS:
+        return {
+          isFetching: false,
+          trips: action.trips
+        }
+      case FAILURE_TRIPS:
+        return {isFetching: false}
+      case CLEAR_TRIPS:
         return action.trips
       default:
         return state

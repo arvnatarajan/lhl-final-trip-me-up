@@ -1,8 +1,11 @@
+import { CALL_API } from '../middleware/api'
+
+
 export const REQUEST_TRIPS = 'REQUEST_TRIPS'
 export const requestTrips = () => {
   return {
     type: REQUEST_TRIPS,
-    status: 'Loading trips'
+    isFetching: true
   }
 }
 
@@ -14,14 +17,22 @@ export const receiveTrips = (trips) => {
   }
 }
 
-export function fetchTrips(user_id, trips) {
-  return function (dispatch) {
-    dispatch(requestTrips())
+export const FAILURE_TRIPS = 'FAILURE_TRIPS'
 
-    return fetch(`http://localhost:8080/api/users/${user_id}/${trips}`)
-      .then(response => response.json())
-      .then(response => {
-        dispatch(receiveTrips(response))
-      })
+
+export const CLEAR_TRIPS = 'CLEAR_TRIPS'
+export const clearTrips = () => {
+  return {
+    trips: []
+  }
+}
+
+export function fetchTrips() {
+  return {
+    [CALL_API]: {
+      endpoint: '1/trips',
+      authenticated: true,
+      types: [REQUEST_TRIPS, RECEIVE_TRIPS, FAILURE_TRIPS]
+    }
   }
 }

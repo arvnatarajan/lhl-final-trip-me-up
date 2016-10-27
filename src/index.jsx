@@ -17,11 +17,19 @@ import { login, fetchTrips, fetchDays, fetchUser, fetchEvents } from './actions/
 import App from './containers/App'
 import Trip from './containers/Trip'
 import User from './containers/User'
+import api from './middleware/api'
 
 
 const loggerMiddleware = createLogger()
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-let store = createStore(rootReducer, applyMiddleware(thunkMiddleware, loggerMiddleware))
+let store = createStore(rootReducer, composeEnhancers(
+  applyMiddleware(
+    thunkMiddleware,
+    api,
+    loggerMiddleware
+  )
+));
 
 render(
   <Provider store={store}>

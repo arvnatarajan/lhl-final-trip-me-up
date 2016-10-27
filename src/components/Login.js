@@ -1,11 +1,8 @@
 import React from 'react';
 
 class Login extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
-  handleClick = (event) => {
+  handleClick = () => {
     event.preventDefault()
     const email = this.refs.email
     const password = this.refs.password
@@ -39,7 +36,7 @@ class Login extends React.Component {
               placeholder="Password"
             />
           </span>
-          <button onClick={(event) => this.handleClick(event)}>
+          <button onClick={this.handleClick}>
           </button>
 
           {errorMessage &&

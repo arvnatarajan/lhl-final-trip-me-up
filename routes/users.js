@@ -128,12 +128,11 @@ module.exports = (knex) => {
 
   router.get("/events/:id", (req, res) => {
     let e_id = req.params.id
-    knex
-    .select('*')
-    .from('events')
+    knex('events')
     .where('id', e_id)
+    .del()
     .then((results) => {
-      res.json(results);
+      res.json(e_id);
     })
   });
 

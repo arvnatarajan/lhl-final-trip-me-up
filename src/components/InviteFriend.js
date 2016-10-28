@@ -28,6 +28,7 @@ class InviteFriend extends React.Component {
   }
 
 
+
   render() {
     const { errorMessage } = this.props
 
@@ -44,7 +45,6 @@ class InviteFriend extends React.Component {
         Invite!
         </button>
         <div>
-          <button onClick={this._addNotification}>Add notification</button>
           <NotificationSystem ref="notificationSystem" />
         </div>
 

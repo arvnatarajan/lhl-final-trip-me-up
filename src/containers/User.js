@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchTrips, showModal, fetchNotifications } from '../actions/index'
+import { fetchTrips, showModal, fetchNotifications, deleteNotifications } from '../actions/index'
 import UserTrips from '../components/UserTrips'
 import NewTripForm from '../components/NewTripForm'
 import { Button, Modal } from 'react-bootstrap'
+import NotificationSystem from 'react-notification-system'
 
 class User extends React.Component {
   constructor(props) {
@@ -11,18 +12,29 @@ class User extends React.Component {
   }
 
   componentDidMount() {
+    this._notificationSystem = this.refs.notificationSystem;
     this.props.fetchTrips(localStorage.getItem('user_id'), 'trips')
     this.props.fetchNotifications(localStorage.getItem('user_id'))
+
+    setTimeout(() => {
+      this.props.notifications.forEach((msg) => {
+        this._notificationSystem.addNotification({
+          message: `${msg.notification_message}`,
+          level: 'success'
+        })
+      })
+      this.props.deleteNotifications(localStorage.getItem('user_id'))
+    }, 500);
+
   }
+
 
   openNewTripForm = () => {
     this.props.showModal(localStorage.getItem('user_id'))
-    console.log('clicked')
   }
 
   closeNewTripForm = () => {
     this.props.showModal(null)
-    console.log('clicked')
   }
 
   handleSubmit = (tripInfo) => {
@@ -61,6 +73,9 @@ class User extends React.Component {
     const { trips, user, modalID } = this.props
     return (
       <div>
+        <div>
+          <NotificationSystem ref="notificationSystem" />
+        </div>
         <Button
             bsStyle="primary"
             bsSize="large"
@@ -91,7 +106,8 @@ const mapStateToProps = (state) => {
     trips: state.userTrips.trips,
     user: state.user,
     modalID: state.modalID,
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    notifications: state.notification.notifications
   }
 }
 
@@ -99,7 +115,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchTrips: (trip_id, trips) => dispatch(fetchTrips(trip_id, trips)),
     showModal: (status) => dispatch(showModal(status)),
-    fetchNotifications: (user_id) => dispatch(fetchNotifications(user_id))
+    fetchNotifications: (user_id) => dispatch(fetchNotifications(user_id)),
+    deleteNotifications: (user_id) => deleteNotifications(user_id)
 
   }
 }

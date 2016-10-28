@@ -65,7 +65,8 @@ import {
   fetchNotifications,
   requestFriendInvite,
   requestFriendInviteSuccess,
-  sendFriendInvite
+  sendFriendInvite,
+  deleteNotifications
 } from './notifications'
 
 export {
@@ -83,5 +84,6 @@ export {
   fetchUser,
   fetchTrips,
   fetchDays,
-  fetchEvents
+  fetchEvents,
+  deleteNotifications
 }

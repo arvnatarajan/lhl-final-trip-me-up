@@ -1,4 +1,5 @@
 import { CALL_API } from '../middleware/api'
+import NotificationSystem from 'react-notification-system'
 
 export const REQUEST_FRIEND_INVITE = 'REQUEST_FRIEND_INVITE'
 export const requestFriendInvite = (ID) => {
@@ -57,9 +58,18 @@ export function fetchNotifications(user_id) {
     return fetch(`http://localhost:8080/api/users/${user_id}/notifications`)
     .then(response => response.json())
     .then(response => {
+      console.log(response, 'response')
       dispatch(receiveNotifications(response))
     })
   }
+}
+
+export function deleteNotifications(user_id) {
+  return fetch(`http://localhost:8080/api/users/${user_id}/delete-notifications`)
+  .then(response => response.json())
+  .then(response => {
+    console.log(response)
+  })
 }
 
 export function sendFriendInvite(deets) {

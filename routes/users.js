@@ -32,7 +32,19 @@ module.exports = (knex) => {
       res.json(results);
     });
   });
-  
+
+  router.get("/:user_id/delete-notifications", (req, res) => {
+    let u_id = req.params.user_id
+    knex
+    .select("*")
+    .from("notifications")
+    .where('user_id', u_id)
+    .del()
+    .then((results) => {
+      res.json(results);
+    });
+  });
+
 //get all trips from a user
   router.get("/:user_id/trips", (req, res) => {
     let u_id = req.params.user_id

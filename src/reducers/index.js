@@ -157,11 +157,13 @@ const reducers = {
           user: action.creds
         }
       case LOGIN_SUCCESS:
+      console.log(action.user, 'login success')
         return {
           isFetching: false,
           isAuthenticated: true,
           errorMessage: '',
-          user_id: action.user_id
+          user_id: action.user_id,
+          user: action.user
         }
       case LOGIN_FAILURE:
         return {

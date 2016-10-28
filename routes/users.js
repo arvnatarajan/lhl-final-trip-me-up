@@ -143,7 +143,8 @@ module.exports = (knex) => {
         return res.status(401).send({message: "User does not exist"})
       } else {
         return res.status(201).send({
-          user_id: results[0].id
+          user_id: results[0].id,
+          user: results[0]
         })
       }
     })

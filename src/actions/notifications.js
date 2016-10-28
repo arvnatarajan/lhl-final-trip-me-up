@@ -1,3 +1,5 @@
+import { CALL_API } from '../middleware/api'
+
 export const REQUEST_FRIEND_INVITE = 'REQUEST_FRIEND_INVITE'
 export const requestFriendInvite = (ID) => {
   return {
@@ -21,6 +23,45 @@ export const invitedFriendNotification = () => {
   }
 }
 
+export const REQUEST_NOTIFICATIONS = 'REQUEST_NOTIFICATIONS'
+export const requestNotifications = () => {
+  return {
+    type: REQUEST_NOTIFICATIONS,
+    isFetching: true
+  }
+}
+
+export const RECEIVE_NOTIFICATIONS = 'RECEIVE_NOTIFICATIONS'
+export const receiveNotifications = (notifications) => {
+  return {
+    type: RECEIVE_NOTIFICATIONS,
+    notifications
+  }
+}
+
+export const REQUEST_NOTIFICATIONS_FAILURE = 'REQUEST_NOTIFICATIONS_FAILURE'
+
+
+export const CLEAR_NOTIFICATIONS = 'CLEAR_NOTIFICATIONS'
+export const clearNotifications = () => {
+  return {
+    notifications: []
+  }
+}
+
+
+export function fetchNotifications(user_id) {
+  return function (dispatch) {
+    dispatch(requestNotifications())
+
+    return fetch(`http://localhost:8080/api/users/${user_id}/notifications`)
+    .then(response => response.json())
+    .then(response => {
+      dispatch(receiveNotifications(response))
+    })
+  }
+}
+
 export function sendFriendInvite(deets) {
 
   let config = {
@@ -34,12 +75,12 @@ export function sendFriendInvite(deets) {
     dispatch(requestFriendInvite(deets.user_id))
 
     return fetch('http://localhost:8080/api/users/notifications/new', config)
-      .then(response => {
-        console.log(response)
-        response.json()
-      })
-      .then((response) =>  {
-          dispatch(requestFriendInviteSuccess(response.user_id))
+      .then(response =>
+        response.json().then(user => ({ user, response }))
+            ).then(({ user, response }) =>  {
+
+              console.log(user[0])
+              dispatch(requestFriendInviteSuccess(user[0]))
         }
       )
       .catch(err => console.log("Error: ", err))

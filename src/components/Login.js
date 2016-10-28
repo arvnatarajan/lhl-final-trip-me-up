@@ -15,11 +15,10 @@ class Login extends React.Component {
 
     this.props.onLoginClick(creds)
 
-
     setTimeout(() => {
       this.props.router.push(`/user/${localStorage.getItem('user_id')}`)
-      
     }, 500);
+
   }
 
   render() {

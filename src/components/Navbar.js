@@ -4,7 +4,7 @@ import Logout from './Logout'
 import { loginUser, logoutUser } from '../actions/index'
 import { Link } from 'react-router'
 
-const Navbar = ({ user, isAuthenticated, errorMessage, loginUser, logoutUser, fetchTrips }) => (
+const Navbar = ({ user, isAuthenticated, errorMessage, loginUser, logoutUser, fetchTrips, fetchNotifications }) => (
   <nav>
     <span> Hello { user.first_name }! </span>
     <span> Homebase { user.homebase } </span>
@@ -15,6 +15,7 @@ const Navbar = ({ user, isAuthenticated, errorMessage, loginUser, logoutUser, fe
         errorMessage={errorMessage}
         onLoginClick={ creds => loginUser(creds) }
         fetchTrips={fetchTrips}
+        fetchNotifications={ user_id => fetchNotifications(user_id) }
       />
     }
 

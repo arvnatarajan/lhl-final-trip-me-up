@@ -21,6 +21,18 @@ module.exports = (knex) => {
     });
   });
 
+  //get all notifcations from a user
+  router.get("/:user_id/notifications", (req, res) => {
+    let u_id = req.params.user_id
+    knex
+    .select("*")
+    .from("notifications")
+    .where('user_id', u_id)
+    .then((results) => {
+      res.json(results);
+    });
+  });
+  
 //get all trips from a user
   router.get("/:user_id/trips", (req, res) => {
     let u_id = req.params.user_id
@@ -33,6 +45,7 @@ module.exports = (knex) => {
         res.json(results);
     });
   });
+
 
   router.get("/:user_id/trips/:trip_id/days", (req, res) => {
     let u_id = req.params.user_id
@@ -166,7 +179,6 @@ module.exports = (knex) => {
   })
 
   router.post("/notifications/new", (req, res) => {
-    console.log('asdfsad')
     knex('notifications')
     .returning('user_id')
     .insert({

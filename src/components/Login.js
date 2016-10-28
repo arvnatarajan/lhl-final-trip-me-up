@@ -18,6 +18,7 @@ class Login extends React.Component {
 
     setTimeout(() => {
       this.props.router.push(`/user/${localStorage.getItem('user_id')}`)
+      
     }, 500);
   }
 

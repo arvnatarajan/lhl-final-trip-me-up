@@ -18,6 +18,8 @@ import {  RECEIVE_TRIPS,
           LOGIN_FAILURE,
           LOGOUT_REQUEST,
           LOGOUT_SUCCESS,
+          REQUEST_FRIEND_INVITE,
+          REQUEST_FRIEND_INVITE_SUCCESS,
           SHOW_MODAL,
           SHOW_DAY_DROPDOWN
         } from '../actions/index'
@@ -173,6 +175,28 @@ const reducers = {
         return {
           isFetching: true,
           isAuthenticated: false
+        }
+      default:
+        return state
+    }
+  },
+
+  notification: (state = {
+    isFetching: false,
+    isSending: false
+  }, action) => {
+    switch (action.type) {
+      case REQUEST_FRIEND_INVITE:
+        return {
+          isSending: true,
+          friendID: action.friendID
+        }
+      case REQUEST_FRIEND_INVITE_SUCCESS:
+        return {
+          isSending: false,
+          notification_message: 'Your friend wants you to join their trip!',
+          notification_type: 'Invitation',
+          friendID: action.friendID
         }
       default:
         return state

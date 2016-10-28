@@ -14,7 +14,8 @@ export const receiveLogin = (user) => {
     type: LOGIN_SUCCESS,
     isFetching: false,
     isAuthenticated: true,
-    user_id: user.user_id
+    user_id: user.user_id,
+    user
   }
 }
 

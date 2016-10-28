@@ -22,6 +22,7 @@ export function fetchUser(user_id) {
     return fetch(`http://localhost:8080/api/users/${user_id}`)
       .then(response => response.json())
       .then(response => {
+        console.log(response)
         dispatch(receiveUser(response))
       })
   }

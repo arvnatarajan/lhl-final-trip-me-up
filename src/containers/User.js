@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchTrips, showModal, fetchNotifications } from '../actions/index'
 import UserTrips from '../components/UserTrips'
 import NewTripForm from '../components/NewTripForm'
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap'
 
 class User extends React.Component {
   constructor(props) {

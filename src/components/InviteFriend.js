@@ -15,6 +15,7 @@ class InviteFriend extends React.Component {
     }
 
     this.props.onInviteClick(deets)
+    this.props.onInvite()
 
   }
 

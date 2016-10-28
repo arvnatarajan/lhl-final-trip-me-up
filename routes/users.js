@@ -151,6 +151,20 @@ module.exports = (knex) => {
   })
 
 
+  router.get("/notifications", (req, res) => {
+    console.log('asdfsad')
+    knex('notifications')
+    .returning('user_id')
+    .insert({
+      user_id: req.body.user_id,
+      notification_type: req.body.notification_type,
+      notification_message: req.body.notification_message,
+    })
+    .then((results) => {
+      res.json(results)
+    })
+  })
+
   router.post("/notifications/new", (req, res) => {
     console.log('asdfsad')
     knex('notifications')

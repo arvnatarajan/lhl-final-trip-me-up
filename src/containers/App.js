@@ -23,10 +23,11 @@ class App extends React.Component {
   componentDidMount() {
     this._notificationSystem = this.refs.notificationSystem;
     console.log(this.props)
-    this._addNotification()
   }
 
-
+  componentDidUpdate() {
+    this._addNotification
+  }
 
   render() {
     const { trips, user, days, loginUser, logoutUser, isAuthenticated, errorMessage } = this.props
@@ -56,7 +57,8 @@ const mapStateToProps = (state) => {
     user: state.user,
     modalStatus: state.modalStatus,
     isAuthenticated: state.auth.isAuthenticated,
-    errorMessage: state.auth.errorMessage
+    errorMessage: state.auth.errorMessage,
+    notifierMessage: state.notification.notifier_message
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux'
-import { fetchDays, fetchEvents, sendFriendInvite } from '../actions/index'
+import { fetchDays, fetchEvents, sendFriendInvite, invitedFriendNotification } from '../actions/index'
 import TripDays from '../components/TripDays'
 import InviteFriend from '../components/InviteFriend'
 
@@ -22,7 +22,7 @@ class Trip extends React.Component {
     const { days, events } = this.props
     return(
       <div>
-        <InviteFriend onInviteClick={ deets => this.props.sendFriendInvite(deets) }/>
+        <InviteFriend onInvite={ () => this.props.invitedFriendNotification() } onInviteClick={ deets => this.props.sendFriendInvite(deets) }/>
         <TripDays
           days={days ? days : [{title: 'Loading..'}]}
           events={events ? events : [{title: 'Loading..'}]}
@@ -44,7 +44,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchDays: (user_id, trip_id, days) => dispatch(fetchDays(user_id, trip_id, days)),
     fetchEvents: (trip_id) => dispatch(fetchEvents(trip_id)),
-    sendFriendInvite: (deets) => dispatch(sendFriendInvite(deets))
+    sendFriendInvite: (deets) => dispatch(sendFriendInvite(deets)),
+    invitedFriendNotification: () => dispatch(invitedFriendNotification())
   }
 }
 

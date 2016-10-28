@@ -2,8 +2,7 @@ export const REQUEST_FRIEND_INVITE = 'REQUEST_FRIEND_INVITE'
 export const requestFriendInvite = (ID) => {
   return {
     type: REQUEST_FRIEND_INVITE,
-    isSending: true,
-    friendID: ID
+    isSending: true
   }
 }
 
@@ -12,6 +11,13 @@ export const requestFriendInviteSuccess = (ID) => {
   return {
     type: REQUEST_FRIEND_INVITE_SUCCESS,
     friendID: ID
+  }
+}
+
+export const INVITED_FRIEND_NOTIFICATION = 'INVITED_FRIEND_NOTIFICATION'
+export const invitedFriendNotification = () => {
+  return {
+    type: INVITED_FRIEND_NOTIFICATION
   }
 }
 

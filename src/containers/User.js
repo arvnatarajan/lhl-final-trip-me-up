@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchTrips, showModal} from '../actions/index'
+import { fetchTrips, showModal, fetchNotifications } from '../actions/index'
 import UserTrips from '../components/UserTrips'
 import NewTripForm from '../components/NewTripForm'
 import { Button, Modal } from 'react-bootstrap';
@@ -12,6 +12,7 @@ class User extends React.Component {
 
   componentDidMount() {
     this.props.fetchTrips(localStorage.getItem('user_id'), 'trips')
+    this.props.fetchNotifications(localStorage.getItem('user_id'))
   }
 
   openNewTripForm = () => {
@@ -97,7 +98,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchTrips: (trip_id, trips) => dispatch(fetchTrips(trip_id, trips)),
-    showModal: (status) => dispatch(showModal(status))
+    showModal: (status) => dispatch(showModal(status)),
+    fetchNotifications: (user_id) => dispatch(fetchNotifications(user_id))
+
   }
 }
 

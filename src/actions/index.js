@@ -57,6 +57,10 @@ import {
 import {
   REQUEST_FRIEND_INVITE,
   REQUEST_FRIEND_INVITE_SUCCESS,
+  REQUEST_NOTIFICATIONS,
+  RECEIVE_NOTIFICATIONS,
+  REQUEST_NOTIFICATIONS_FAILURE,
+  fetchNotifications,
   requestFriendInvite,
   requestFriendInviteSuccess,
   sendFriendInvite
@@ -71,7 +75,7 @@ export {
   REQUEST_USER, RECEIVE_USER, requestUser, receiveUser,
   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, requestLogin, receiveLogin, loginError, loginUser,
   LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE, requestLogout, receiveLogout, logoutUser,
-  REQUEST_FRIEND_INVITE, REQUEST_FRIEND_INVITE_SUCCESS, requestFriendInvite, requestFriendInviteSuccess, sendFriendInvite,
+  REQUEST_FRIEND_INVITE, REQUEST_FRIEND_INVITE_SUCCESS,REQUEST_NOTIFICATIONS, RECEIVE_NOTIFICATIONS,REQUEST_NOTIFICATIONS_FAILURE, fetchNotifications, requestFriendInvite, requestFriendInviteSuccess, sendFriendInvite,
   fetchUser,
   fetchTrips,
   fetchDays,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchTrips, fetchDays, fetchUser, loginUser, logoutUser } from '../actions/index'
+import { fetchTrips, fetchDays, fetchUser, loginUser, logoutUser, fetchNotifications } from '../actions/index'
 import Navbar from '../components/Navbar'
 import User from './User'
 import { Link } from 'react-router'
@@ -23,6 +23,7 @@ class App extends React.Component {
           errorMessage={errorMessage}
           loginUser={loginUser}
           logoutUser={logoutUser}
+          fetchNotifications={fetchNotifications}
         />
         {this.props.children}
       </div>
@@ -45,7 +46,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchUser: (id) => dispatch(fetchUser(id)),
     loginUser: (creds) => dispatch(loginUser(creds)),
-    logoutUser: () => dispatch(logoutUser())
+    logoutUser: () => dispatch(logoutUser()),
+    fetchNotifications: (user_id) => dispatch(fetchNotifications(user_id))
   }
 }
 

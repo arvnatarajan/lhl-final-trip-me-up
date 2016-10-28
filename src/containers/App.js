@@ -15,7 +15,7 @@ class App extends React.Component {
 
   _addNotification = () => {
     this._notificationSystem.addNotification({
-      message: 'Hey!',
+      message: 'Hey',
       level: 'success'
     });
   }
@@ -25,9 +25,13 @@ class App extends React.Component {
     console.log(this.props)
   }
 
-  componentDidUpdate() {
-    this._addNotification
-  }
+  // componentDidUpdate() {
+  //   this.refs.notificationSystem.addNotification({
+  //     message: 'hi',
+  //     level: 'success'
+  //   });
+  // }
+
 
   render() {
     const { trips, user, days, loginUser, logoutUser, isAuthenticated, errorMessage } = this.props

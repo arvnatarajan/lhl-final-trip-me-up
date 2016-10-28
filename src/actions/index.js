@@ -79,7 +79,7 @@ export {
   LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE, requestLogout, receiveLogout, logoutUser,
   INVITED_FRIEND_NOTIFICATION, REQUEST_FRIEND_INVITE, REQUEST_FRIEND_INVITE_SUCCESS,REQUEST_NOTIFICATIONS,
   RECEIVE_NOTIFICATIONS,REQUEST_NOTIFICATIONS_FAILURE,
-  fetchNotifications, requestFriendInvite, requestFriendInviteSuccess, sendFriendInvite, invitedFriendNotification
+  fetchNotifications, requestFriendInvite, requestFriendInviteSuccess, sendFriendInvite, invitedFriendNotification,
   fetchUser,
   fetchTrips,
   fetchDays,

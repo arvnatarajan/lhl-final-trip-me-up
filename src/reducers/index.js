@@ -20,13 +20,10 @@ import {  RECEIVE_TRIPS,
           LOGOUT_SUCCESS,
           REQUEST_FRIEND_INVITE,
           REQUEST_FRIEND_INVITE_SUCCESS,
-<<<<<<< HEAD
           INVITED_FRIEND_NOTIFICATION,
-=======
           REQUEST_NOTIFICATIONS,
           RECEIVE_NOTIFICATIONS,
           REQUEST_NOTIFICATIONS_FAILURE,
->>>>>>> 0edfb84d514361f27c5e8277d29cf1b13c9a4acf
           SHOW_MODAL,
           SHOW_DAY_DROPDOWN
         } from '../actions/index'
@@ -193,7 +190,7 @@ const reducers = {
   notification: (state = {
     isFetching: false,
     isSending: false,
-    notifier_message: null,
+    notifier_message: '',
     notifications: []
   }, action) => {
     switch (action.type) {
@@ -205,13 +202,12 @@ const reducers = {
       case REQUEST_FRIEND_INVITE_SUCCESS:
         return {
           isSending: false,
-          notification_message: 'You have invited your friend to join your trip!',
-          notification_type: 'Invitation',
           friendID: action.friendID
         }
       case INVITED_FRIEND_NOTIFICATION:
         return {
           notifier_message: 'You invited a friend to your trip!'
+        }
       case REQUEST_NOTIFICATIONS:
         return {
           isFetching: true

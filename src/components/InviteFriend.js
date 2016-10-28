@@ -1,8 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router'
-
+import NotificationSystem from 'react-notification-system'
 
 class InviteFriend extends React.Component {
+
+  componentDidMount() {
+    this._notificationSystem = this.refs.notificationSystem;
+  }
 
   handleClick = () => {
     const user_id = this.refs.friend
@@ -15,9 +19,14 @@ class InviteFriend extends React.Component {
     }
 
     this.props.onInviteClick(deets)
-    this.props.onInvite()
+
+    this._notificationSystem.addNotification({
+      message: 'You\'ve tripped up a friend!',
+      level: 'success'
+    });
 
   }
+
 
   render() {
     const { errorMessage } = this.props
@@ -31,9 +40,13 @@ class InviteFriend extends React.Component {
             ref="friend"
           />
         </span>
-        <button onClick={this.handleClick}>
+        <button onClick={this.handleClick} >
         Invite!
         </button>
+        <div>
+          <button onClick={this._addNotification}>Add notification</button>
+          <NotificationSystem ref="notificationSystem" />
+        </div>
 
         {errorMessage &&
           <p className="error-message">{errorMessage}</p>

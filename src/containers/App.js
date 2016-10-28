@@ -4,34 +4,12 @@ import { fetchTrips, fetchDays, fetchUser, loginUser, logoutUser, fetchNotificat
 import Navbar from '../components/Navbar'
 import User from './User'
 import { Link } from 'react-router'
-import NotificationSystem from 'react-notification-system'
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this._notificationSystem = null
-  }
-
-  _addNotification = () => {
-    this._notificationSystem.addNotification({
-      message: 'Hey',
-      level: 'success'
-    });
-  }
 
   componentDidMount() {
-    this._notificationSystem = this.refs.notificationSystem;
-    console.log(this.props)
   }
-
-  // componentDidUpdate() {
-  //   this.refs.notificationSystem.addNotification({
-  //     message: 'hi',
-  //     level: 'success'
-  //   });
-  // }
-
 
   render() {
     const { trips, user, days, loginUser, logoutUser, isAuthenticated, errorMessage } = this.props
@@ -46,10 +24,7 @@ class App extends React.Component {
           fetchNotifications={fetchNotifications}
         />
         {this.props.children}
-        <div>
-          <button onClick={this._addNotification}>Add notification</button>
-          <NotificationSystem ref="notificationSystem" />
-        </div>
+
       </div>
     )
   }
@@ -62,8 +37,8 @@ const mapStateToProps = (state) => {
     user: state.user,
     modalStatus: state.modalStatus,
     isAuthenticated: state.auth.isAuthenticated,
-    errorMessage: state.auth.errorMessage,
-    notifierMessage: state.notification.notifier_message
+    errorMessage: state.auth.errorMessage
+
   }
 }
 

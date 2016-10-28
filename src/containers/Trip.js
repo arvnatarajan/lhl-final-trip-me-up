@@ -5,9 +5,15 @@ import { fetchDays, fetchEvents, sendFriendInvite, invitedFriendNotification } f
 import TripDays from '../components/TripDays'
 import InviteFriend from '../components/InviteFriend'
 
+
 class Trip extends React.Component {
+  constructor(props) {
+    super(props)
+    this._notificationSystem = null
+  }
 
   componentDidMount() {
+    this._notificationSystem = this.refs.notificationSystem;
     const { user } = this.props
     let trip_id = this.props.params.trip_id
     let user_id = localStorage.getItem('user_id') ? localStorage.getItem('user_id') : null
@@ -27,6 +33,7 @@ class Trip extends React.Component {
           days={days ? days : [{title: 'Loading..'}]}
           events={events ? events : [{title: 'Loading..'}]}
         />
+
       </div>
     )
   }
@@ -36,7 +43,8 @@ const mapStateToProps = (state) => {
   return {
     days: state.tripDays,
     events: state.tripEvents,
-    user: state.user
+    user: state.user,
+    notifierMessage: state.notification.notifier_message
   }
 }
 

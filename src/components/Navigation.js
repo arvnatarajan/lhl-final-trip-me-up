@@ -3,12 +3,18 @@ import Login from './Login'
 import Logout from './Logout'
 import { loginUser, logoutUser } from '../actions/index'
 import { Link } from 'react-router'
+import { Navbar, Nav, NavItem} from 'react-bootstrap'
 
-const Navbar = ({ user, isAuthenticated, errorMessage, loginUser, logoutUser, fetchTrips, fetchNotifications }) => (
+const Navigation = ({ user, isAuthenticated, errorMessage, loginUser, logoutUser, fetchTrips, fetchNotifications }) => (
+
+
   <nav>
-    <span> Hello { user.first_name }! </span>
-    <span> Homebase { user.homebase } </span>
-    <span> Trip me Up </span>
+
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a> Trip me Up </a>
+      </Navbar.Brand>
+    </Navbar.Header>
 
     {!isAuthenticated &&
       <Login
@@ -24,10 +30,12 @@ const Navbar = ({ user, isAuthenticated, errorMessage, loginUser, logoutUser, fe
     }
 
   </nav>
+
+
 )
 
-Navbar.propTypes = {
+Navigation.propTypes = {
   user: PropTypes.array.isRequired
 }
 
-export default Navbar;
+export default Navigation;

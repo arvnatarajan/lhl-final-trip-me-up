@@ -6,10 +6,18 @@ import NewTripForm from '../components/NewTripForm'
 import { Button, Modal } from 'react-bootstrap'
 import NotificationSystem from 'react-notification-system'
 
+const buttonStyle = {
+    margin: 'auto',
+    display: 'block',
+    marginBottom: '20px',
+    marginTop: '30px'
+  }
+
 class User extends React.Component {
   constructor(props) {
     super(props)
   }
+
 
   componentDidMount() {
     this._notificationSystem = this.refs.notificationSystem;
@@ -76,7 +84,7 @@ class User extends React.Component {
         <div>
           <NotificationSystem ref="notificationSystem" />
         </div>
-        <Button
+        <Button style={ buttonStyle }
             bsStyle="primary"
             bsSize="large"
             onClick={this.openNewTripForm}

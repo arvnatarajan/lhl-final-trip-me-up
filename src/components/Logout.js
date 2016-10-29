@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
+import { Button } from 'react-bootstrap';
 
 class Logout extends React.Component {
   constructor(props) {
@@ -16,9 +17,7 @@ class Logout extends React.Component {
 
     return (
       <div className="logout">
-        <button onClick={this.handleLogout}>
-          Logout
-        </button>
+        <Button onClick={this.handleLogout} bsStyle="link">Logout</Button>
       </div>
     )
   }

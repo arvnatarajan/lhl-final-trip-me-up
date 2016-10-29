@@ -17,6 +17,7 @@ import { login, fetchTrips, fetchDays, fetchUser, fetchEvents } from './actions/
 import App from './containers/App'
 import Trip from './containers/Trip'
 import User from './containers/User'
+import Map from './components/Map'
 import api from './middleware/api'
 
 
@@ -37,6 +38,7 @@ render(
       <Route path="/" component={App}>
         <Route path="Trip/:trip_id" component={Trip}/>
         <Route path="User/:user_id" component={User}/>
+        <Route path="Map/:trip_id" component={Map}/>
       </Route>
     </Router>
   </Provider>,

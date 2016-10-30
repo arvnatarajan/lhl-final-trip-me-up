@@ -14,6 +14,7 @@ class TripDays extends React.Component {
     });
   }
 
+
   render() {
     return (
       <div className="days-container">
@@ -28,5 +29,6 @@ class TripDays extends React.Component {
 TripDays.propTypes = {
   days: PropTypes.array.isRequired
 }
+
 
 export default TripDays

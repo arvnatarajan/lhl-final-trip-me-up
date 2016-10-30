@@ -24,10 +24,34 @@ class Trip extends React.Component {
     }
   }
 
+    handleAddDay = () => {
+      let user_id = localStorage.getItem('user_id')
+      let trip_id = this.props.params.trip_id
+      let dateObj = this.props.days[this.props.days.length-1]
+      console.log(dateObj)
+      // fetch(`http://localhost:8080/api/users/${user_id}/trips/${trip_id}/days/new`, {
+      //   method:'POST',
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify({
+
+      //   })
+      // })
+      // .then(response => {
+      //   response.json()
+      //   this.props.showModal(null)
+      //   this.props.fetchTrips(localStorage.getItem('user_id'), 'trips')
+      // })
+      // .catch(err => console.log(err))
+    }
+
+
   render(){
     const { days, events } = this.props
     return(
       <div>
+        <button className="add-day-button" type="button" onClick={this.handleAddDay}>+ Day</button>
         <InviteFriend onInvite={ () => this.props.invitedFriendNotification() } onInviteClick={ deets => this.props.sendFriendInvite(deets) }/>
         <TripDays
           days={days ? days : [{title: 'Loading..'}]}

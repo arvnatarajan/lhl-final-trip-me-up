@@ -124,11 +124,8 @@ module.exports = (knex) => {
     knex('days')
     .returning('id')
     .insert({
-      trip_id: req.params.trip_id,
-      date: req.body.date,
-      day_start_location: req.body.day_start_location,
-      day_end_location: req.body.day_end_location,
-      day_img_url: req.body.day_img_url
+      trip_id: req.body.trip_id,
+      date: req.body.date
     })
     .then((results) => {
       res.json(results)

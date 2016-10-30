@@ -4,11 +4,16 @@ import { fetchTrips, fetchDays, fetchUser, loginUser, logoutUser, fetchNotificat
 import Navigation from '../components/Navigation'
 import User from './User'
 import { Link } from 'react-router'
+const geocoder = require('geocoder');
 
 
 class App extends React.Component {
 
   componentDidMount() {
+
+    geocoder.geocode("Atlanta, GA", function ( err, data ) {
+      console.log(data)
+    });
   }
 
   render() {

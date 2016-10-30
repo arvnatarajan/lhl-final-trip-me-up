@@ -1,48 +1,33 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router'
-import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from 'react-google-maps'
 import _ from 'lodash'
 
-
-const MapAPI = withGoogleMap(props => (
-  <GoogleMap
-    ref={props.onMapLoad}
-    defaultZoom={3}
-    defaultCenter={{ lat: 41.8507300, lng: -87.6512600 }}
-  >
-  {props.directions && <DirectionsRenderer directions={props.directions} />}
-  </GoogleMap>
-
-))
+const ReactGoogleMaps = require('react-googlemaps')
+const GoogleMapsAPI = window.google.map
+const TripMap = ReactGoogleMaps.Map
+const Marker = ReactGoogleMaps.Marker;
+const OverlayView = ReactGoogleMaps.OverlayView;
+const Polyline = ReactGoogleMaps.Polyline;
 
 
 export default class Map extends React.Component {
 
-  state = {
-    origin: new google.maps.LatLng(41.8507300, -87.6512600),
-    destination: new google.maps.LatLng(40.65, -73.95),
-    directions: null
-  }
 
   componentDidMount() {
-    const DirectionsService = new google.maps.DirectionsService();
-
-    DirectionsService.route({
-      origin: this.state.origin,
-      destination: this.state.destination,
-      travelMode: google.maps.TravelMode.DRIVING,
-    }, (result, status) => {
-      if (status === google.maps.DirectionsStatus.OK) {
-        this.setState({
-          directions: result,
-        });
-      } else {
-        console.error(`error fetching directions ${result}`);
-      }
-    });
+    this.setState({
+      linePath: [(41.879535, -87.624333), (-41.2864, 174.7762)]
+    })
   }
 
-
+  renderPolyline = () => {
+    return (
+      <Polyline
+        path={this.state.linePath}
+        strokeColor="#000000"
+        strokeOpacity={1.0}
+        strokeWeight={3} />
+      );
+  }
 
 
   handleMapLoad = (map) => {
@@ -54,19 +39,11 @@ export default class Map extends React.Component {
 
   render(){
     return(
-      <div style={{height: '450px'}}>
-        <Link to={"trip/" + this.props.params.trip_id}> Back </Link>
-        <MapAPI
-          containerElement={
-            <div style={{ height: '100%'}} />
-          }
-          mapElement={
-            <div style={{ height: '100%'}} />
-          }
-          center={this.state.origin}
-          directions={this.state.directions}
-        />
-      </div>
+      <TripMap
+        initialZoom={10}
+        initialCenter={new GoogleMapsAPI.LatLng(-41.2864, 174.7762)}>
+        {this.renderPolyline()}
+      </TripMap>
     );
   }
 }

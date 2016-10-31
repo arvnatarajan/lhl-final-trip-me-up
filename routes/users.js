@@ -173,30 +173,24 @@ module.exports = (knex) => {
   })
 
 
-  router.get("/notifications", (req, res) => {
-    console.log('asdfsad')
-    knex('notifications')
-    .returning('user_id')
-    .insert({
-      user_id: req.body.user_id,
-      notification_type: req.body.notification_type,
-      notification_message: req.body.notification_message,
-    })
-    .then((results) => {
-      res.json(results)
-    })
-  })
-
   router.post("/notifications/new", (req, res) => {
-    knex('notifications')
-    .returning('user_id')
-    .insert({
-      user_id: req.body.user_id,
-      notification_type: req.body.notification_type,
-      notification_message: req.body.notification_message,
-    })
+    console.log(req.body, 'reqbody')
+    knex('users')
+    .select('*')
+    .where('first_name', req.body.name)
     .then((results) => {
-      res.json(results)
+      console.log(results, 'results')
+      knex('notifications')
+      .returning('*')
+      .insert({
+        user_id: results[0].id,
+        name: results[0].first_name,
+        notification_type: req.body.notification_type,
+        notification_message: req.body.notification_message
+      })
+      .then((results) => {
+        res.json(results[0])
+      })
     })
   })
 

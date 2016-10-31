@@ -53,9 +53,9 @@ class User extends React.Component {
                          'http://i65.tinypic.com/34i332x.jpg']
 
     let tripPic = tripPicList[Math.floor(Math.random()*tripPicList.length)];
+    let user_id = localStorage.getItem('user_id')
 
-
-    fetch(`http://localhost:8080/api/users/1/trips/new`, {
+    fetch(`http://localhost:8080/api/users/${user_id}/trips/new`, {
       method:'POST',
       headers: {
         "Content-Type": "application/json"
@@ -72,7 +72,7 @@ class User extends React.Component {
     .then(response => {
       response.json()
       this.props.showModal(null)
-      this.props.fetchTrips(localStorage.getItem('user_id'), 'trips')
+      this.props.fetchTrips(localStorage.getItem('user_id'))
     })
     .catch(err => console.log(err))
   }

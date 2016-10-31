@@ -9,11 +9,11 @@ class InviteFriend extends React.Component {
   }
 
   handleClick = () => {
-    const user_id = this.refs.friend
+    const name = this.refs.friend
     const notification_type = 'invitation'
     const notification_message = 'has invited you to join their trip'
     const deets = {
-      user_id: user_id.value,
+      name: name.value,
       notification_type: notification_type,
       notification_message: notification_message
     }

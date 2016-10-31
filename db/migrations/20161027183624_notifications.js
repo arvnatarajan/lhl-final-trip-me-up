@@ -3,6 +3,7 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('notifications', function(table){
       table.increments('id').primary();
       table.integer('user_id').references('id').inTable('users');
+      table.string('name');
       table.string('notification_type');
       table.string('notification_message');
       table.timestamps();

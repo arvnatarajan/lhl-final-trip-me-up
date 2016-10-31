@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { fetchTrips, showModal, fetchNotifications, deleteNotifications } from '../actions/index'
 import UserTrips from '../components/UserTrips'
 import NewTripForm from '../components/NewTripForm'
-import { Button, Modal } from 'react-bootstrap'
 import NotificationSystem from 'react-notification-system'
 
 const buttonStyle = {
@@ -84,12 +83,10 @@ class User extends React.Component {
         <div>
           <NotificationSystem ref="notificationSystem" />
         </div>
-        <Button style={ buttonStyle }
-            bsStyle="primary"
-            bsSize="large"
+        <button className="new-trip-form"
             onClick={this.openNewTripForm}
           >Create your next trip!
-        </Button>
+        </button>
         <Modal show={ localStorage.getItem('user_id') === this.props.modalID  } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">Create a trip</Modal.Title>

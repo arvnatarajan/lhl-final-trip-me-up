@@ -4,6 +4,7 @@ import { fetchTrips, showModal, fetchNotifications, deleteNotifications } from '
 import UserTrips from '../components/UserTrips'
 import NewTripForm from '../components/NewTripForm'
 import NotificationSystem from 'react-notification-system'
+import { Modal } from 'react-bootstrap'
 
 const buttonStyle = {
     margin: 'auto',
@@ -32,9 +33,7 @@ class User extends React.Component {
       })
       this.props.deleteNotifications(localStorage.getItem('user_id'))
     }, 500);
-
   }
-
 
   openNewTripForm = () => {
     this.props.showModal(localStorage.getItem('user_id'))

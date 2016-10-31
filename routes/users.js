@@ -124,11 +124,8 @@ module.exports = (knex) => {
     knex('days')
     .returning('id')
     .insert({
-      trip_id: req.params.trip_id,
-      date: req.body.date,
-      day_start_location: req.body.day_start_location,
-      day_end_location: req.body.day_end_location,
-      day_img_url: req.body.day_img_url
+      trip_id: req.body.trip_id,
+      date: req.body.date
     })
     .then((results) => {
       res.json(results)
@@ -176,30 +173,24 @@ module.exports = (knex) => {
   })
 
 
-  router.get("/notifications", (req, res) => {
-    console.log('asdfsad')
-    knex('notifications')
-    .returning('user_id')
-    .insert({
-      user_id: req.body.user_id,
-      notification_type: req.body.notification_type,
-      notification_message: req.body.notification_message,
-    })
-    .then((results) => {
-      res.json(results)
-    })
-  })
-
   router.post("/notifications/new", (req, res) => {
-    knex('notifications')
-    .returning('user_id')
-    .insert({
-      user_id: req.body.user_id,
-      notification_type: req.body.notification_type,
-      notification_message: req.body.notification_message,
-    })
+    console.log(req.body, 'reqbody')
+    knex('users')
+    .select('*')
+    .where('first_name', req.body.name)
     .then((results) => {
-      res.json(results)
+      console.log(results, 'results')
+      knex('notifications')
+      .returning('*')
+      .insert({
+        user_id: results[0].id,
+        name: results[0].first_name,
+        notification_type: req.body.notification_type,
+        notification_message: req.body.notification_message
+      })
+      .then((results) => {
+        res.json(results[0])
+      })
     })
   })
 

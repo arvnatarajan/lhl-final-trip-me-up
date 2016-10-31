@@ -28,10 +28,10 @@ export const clearTrips = () => {
   }
 }
 
-export function fetchTrips() {
+export function fetchTrips(user) {
   return {
     [CALL_API]: {
-      endpoint: '1/trips',
+      endpoint: `${user}/trips`,
       authenticated: true,
       types: [REQUEST_TRIPS, RECEIVE_TRIPS, FAILURE_TRIPS]
     }

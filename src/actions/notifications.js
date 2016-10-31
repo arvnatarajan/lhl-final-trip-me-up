@@ -73,11 +73,11 @@ export function deleteNotifications(user_id) {
 }
 
 export function sendFriendInvite(deets) {
-
+console.log(deets, 'deets')
   let config = {
     method: 'POST',
     headers: { 'Content-Type':'application/x-www-form-urlencoded' },
-    body: `user_id=${deets.user_id}&notification_type=${deets.notification_type}&notification_message=${deets.notification_message}`
+    body: `name=${deets.name}&notification_type=${deets.notification_type}&notification_message=${deets.notification_message}`
   }
 
   return dispatch => {

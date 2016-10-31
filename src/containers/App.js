@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { fetchTrips, fetchDays, fetchUser, loginUser, logoutUser, fetchNotifications } from '../actions/index'
-import Navbar from '../components/Navbar'
+import Navigation from '../components/Navigation'
 import User from './User'
 import Home from '../components/Home'
 import { Link } from 'react-router'
@@ -16,7 +16,7 @@ class App extends React.Component {
     const { trips, user, days, loginUser, logoutUser, isAuthenticated, errorMessage } = this.props
     return (
       <div>
-        <Navbar
+        <Navigation
           user={user ? user : ['first_name': 'sign in']}
           isAuthenticated={isAuthenticated}
           errorMessage={errorMessage}

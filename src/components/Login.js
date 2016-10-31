@@ -43,7 +43,7 @@ class Login extends React.Component {
               placeholder="Password"
             />
           </span>
-          <button onClick={this.handleClick}>
+          <button className="login-button col" onClick={this.handleClick}>
           </button>
 
           {errorMessage &&

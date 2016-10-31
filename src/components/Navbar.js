@@ -5,10 +5,8 @@ import { loginUser, logoutUser } from '../actions/index'
 import { Link } from 'react-router'
 
 const Navbar = ({ user, isAuthenticated, errorMessage, loginUser, logoutUser, fetchTrips, fetchNotifications }) => (
-  <nav>
-    <span> Hello { user.first_name }! </span>
-    <span> Homebase { user.homebase } </span>
-    <span> Trip me Up </span>
+  <nav className="nav">
+    <div className="title">trip me up</div>
 
     {!isAuthenticated &&
       <Login

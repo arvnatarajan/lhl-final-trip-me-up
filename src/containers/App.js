@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchTrips, fetchDays, fetchUser, loginUser, logoutUser, fetchNotifications } from '../actions/index'
 import Navbar from '../components/Navbar'
 import User from './User'
+import Home from '../components/Home'
 import { Link } from 'react-router'
 
 
@@ -23,6 +24,7 @@ class App extends React.Component {
           logoutUser={logoutUser}
           fetchNotifications={fetchNotifications}
         />
+        { isAuthenticated ? null : <Home /> }
         {this.props.children}
 
       </div>

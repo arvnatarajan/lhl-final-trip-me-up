@@ -1,7 +1,12 @@
 body {
   font-family: 'Dosis', sans-serif;
   margin: 0;
-  background-color: #FDFDFD;
+  background-color: #F5F5F5;
+}
+
+* {
+  min-height: 0;
+  min-width: 0;
 }
 
 .active {
@@ -12,40 +17,74 @@ body {
   width: 100%;
 }
 
-nav {
+.nav {
   padding: 20px 20px 15px 0;
-  background-color: black;
-  color: #eeebe7;
+  background-color: #1A2930;
+  color: #F5F5F5;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   height: 120px;
 
-  h1 {
-    margin-right: 200px;
+  .title {
+    align-self: flex-start;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .login {
+    span {
+      padding: 10px;
+    }
+
+    p {
+      margin: 0 0 8px 0;
+    }
+
+    .login-button {
+      al
+      width: 100px;
+      height: 25px;
+    }
   }
 }
 
-.signup {
-  height: 300px;
-  width: 150px;
+.home-container {
+  display: flex;
 
-  span {
-    padding: 20px;
-    width: 60px;
+  .signup-container {
+    width: 35%;
+    display: flex;
+    margin: 50px 0;
+    padding: 0 50px;
+    border-left: 1px solid lightgrey;
+    flex-direction: column;
+
+    p {
+      font-size: 30px;
+    }
+
+    .signup-box {
+      padding: 5px;
+      margin: 5px 0;
+    }
   }
+
+  .carousel-container{
+    width: 65%;
+    margin: 50px;
+
+    .carousel {
+      height: 450px;
+      width: 100%;
+    }
+  }
+
+  .col {
+  }
+
 }
 
-.login {
-
-  span {
-    padding: 10px;
-  }
-
-  p {
-    margin: 0 0 8px 0;
-  }
-
-}
 
 .flex-grid {
   display: flex;
@@ -59,12 +98,6 @@ nav {
 input {
   padding: 3px;
   color: black;
-}
-
-.carousel {
-  border: 1px solid black;
-  height: 500px;
-  width: 300px;
 }
 
 .trips-container {

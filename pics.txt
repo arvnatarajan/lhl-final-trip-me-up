@@ -30,3 +30,22 @@ insert into events (day_id, start_time, end_time, event_title, event_description
 insert into events (day_id, start_time, end_time, event_title, event_description, event_type) values ('5', '12:00', '14:00', 'Event 11', 'Description 11', 'Lunch');
 insert into events (day_id, start_time, end_time, event_title, event_description, event_type) values ('5', '18:00', '20:00', 'Event 12', 'Description 12', 'Dinner');
 insert into events (day_id, start_time, end_time, event_title, event_description, event_type) values ('6', '12:00', '14:00', 'Event 13', 'Description 13', 'Lunch');
+
+carousel
+botswana
+http://i65.tinypic.com/bfqera.jpg
+
+canada
+http://i64.tinypic.com/anc2mg.jpg
+
+london
+http://i68.tinypic.com/o7rb10.jpg
+
+rio
+http://i67.tinypic.com/2ursazd.jpg
+
+rome
+http://i65.tinypic.com/2589vz7.jpg
+
+venice
+http://i66.tinypic.com/35lujhg.jpg

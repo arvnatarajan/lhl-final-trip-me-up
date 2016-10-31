@@ -27,7 +27,7 @@ const Home = () => (
         <input className="signup-box" type="text" placeholder="Name"/>
         <input className="signup-box" type="text" placeholder="Email"/>
         <input className="signup-box" type="text" placeholder="Hometown"/>
-        <button className="signup-box">be a tripper</button>
+        <button className="signup-button">be a tripper</button>
     </div>
   </div>
 )

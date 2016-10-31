@@ -18,21 +18,25 @@ body {
 }
 
 .nav {
-  padding: 20px 20px 15px 0;
   background-color: #1A2930;
   color: #F5F5F5;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   height: 120px;
+  width: 100%;
 
   .title {
-    align-self: flex-start;
+    padding: 20px 20px 15px 50px;
+    width: 67%;
     font-size: 40px;
     font-weight: bold;
   }
 
   .login {
+    padding: 20px 20px 15px 20px;
+    width: 33%;
+
     span {
       padding: 10px;
     }
@@ -42,17 +46,34 @@ body {
     }
 
     .login-button {
-      width: 100px;
-      height: 25px;
+      align-self: flex-end;
+      margin: 0 0 10px 10px;
+      width: 50px;
+      height: 30px;
+      color: #1A2930;
+      background-color: #F5F5F5;
+      border: none;
     }
+  }
+
+  .logout-button {
+    align-self: center;
+    margin-left: auto;
+    color: #1A2930;
+    background-color: #F5F5F5;
+    border: none;
+    margin-right: 15px;
+    width: 50px;
+    height: 30px;
   }
 }
 
 .home-container {
   display: flex;
+  width: 100%;
 
   .signup-container {
-    width: 35%;
+    width: 33%;
     display: flex;
     margin: 50px 0;
     padding: 0 50px;
@@ -67,10 +88,18 @@ body {
       padding: 5px;
       margin: 5px 0;
     }
+
+    .signup-button {
+      padding: 5px;
+      margin: 5px 0;
+      background-color: #1A2930;
+      color: #F5F5F5;
+      border: none;
+    }
   }
 
   .carousel-container{
-    width: 65%;
+    width: 67%;
     margin: 50px;
 
     .carousel {
@@ -90,7 +119,7 @@ body {
 
     col {
       flex: 1;
-      padding: 10px;
+      padding: 10px 10px 0 10px;
     }
 }
 

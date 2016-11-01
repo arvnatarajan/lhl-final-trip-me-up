@@ -52,7 +52,6 @@ class Trip extends React.Component {
     const { days, events } = this.props
     return(
       <div>
-        <button className="add-day-button" type="button" onClick={this.handleAddDay}>+ Day</button>
         <Link to={"map/" + this.props.params.trip_id}> Map </Link>
         <InviteFriend onInvite={ () => this.props.invitedFriendNotification() } onInviteClick={ deets => this.props.sendFriendInvite(deets) }/>
 
@@ -60,6 +59,7 @@ class Trip extends React.Component {
           days={days ? days : [{title: 'Loading..'}]}
           events={events ? events : [{title: 'Loading..'}]}
         />
+        <button className="add-day-button" type="button" onClick={this.handleAddDay}>+ Day</button>
 
       </div>
     )

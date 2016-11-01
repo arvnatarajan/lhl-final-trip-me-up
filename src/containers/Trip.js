@@ -52,9 +52,6 @@ class Trip extends React.Component {
     const { days, events } = this.props
     return(
       <div className="trip-page">
-        <Link to={"map/" + this.props.params.trip_id}> Map </Link>
-        <InviteFriend onInvite={ () => this.props.invitedFriendNotification() } onInviteClick={ deets => this.props.sendFriendInvite(deets) }/>
-      <div>
         <div className="sub-nav">
           <Link to={"map/" + this.props.params.trip_id}>
             <i className="fa fa-map-marker fa-3x" aria-hidden="true"></i>

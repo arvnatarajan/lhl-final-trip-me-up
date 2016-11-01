@@ -25,6 +25,7 @@ class InviteFriend extends React.Component {
       level: 'success'
     });
 
+    name.value = ''
   }
 
 

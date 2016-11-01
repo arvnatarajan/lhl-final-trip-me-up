@@ -10,25 +10,21 @@ class NewTripForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="trip_title">Trip title</label>
-          <Field name="trip_title" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="trip_start">Trip Start</label>
-          <Field name="trip_start" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="trip_end">Trip End</label>
-          <Field name="trip_end" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="start_location">Start Location</label>
-          <Field name="start_location" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="destination">Destination</label>
-          <Field name="destination" component="input" type="text"/>
+        <div className="new-trip-form">
+          <div className="labels">
+            <label className="trip-title label">Trip title</label>
+            <label htmlFor="trip_start" className="trip-start label">Trip Start</label>
+            <label htmlFor="trip_end" className="trip-end label">Trip End</label>
+            <label htmlFor="start_location" className="start_location label">Start Location</label>
+            <label htmlFor="destination" className="destination label">Destination</label>
+          </div>
+          <div className="boxes">
+            <Field name="trip_title" className="trip-title box" component="input" type="text"/>
+            <Field name="trip_start" className="trip-start box" component="input" type="text"/>
+            <Field name="trip_end" className="trip-end box" component="input" type="text"/>
+            <Field name="start_location" className="start_location box" component="input" type="text"/>
+            <Field name="destination" className="destination box" component="input" type="text"/>
+          </div>
         </div>
         <button type="submit">Submit</button>
       </form>

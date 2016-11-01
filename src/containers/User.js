@@ -88,7 +88,7 @@ class User extends React.Component {
         </button>
         <Modal show={ localStorage.getItem('user_id') === this.props.modalID  } onHide={this.closeNewTripForm} bsSize="large" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-lg">Create a trip</Modal.Title>
+            <Modal.Title id="contained-modal-title-lg">Start planning your next trip!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <NewTripForm

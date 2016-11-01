@@ -331,3 +331,34 @@ input {
 .error-message {
   color: red;
 }
+
+.new-trip-form {
+  width: 200px;
+  display: flex;
+
+  .labels {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+
+    .label {
+      color: #1A2930;
+      font-size: 16px;
+      padding: 5px;
+      margin: 3px;
+    }
+  }
+
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .box {
+      padding: 3px;
+      margin: 3px;
+
+    }
+  }
+}

@@ -95,7 +95,7 @@ module.exports = (knex) => {
   router.post("/:user_id/trips/new", (req, res) => {
     console.log('inserting trip into database: ', req.body)
     knex('trips')
-    // .returning('id')
+    .returning('id')
     .insert({
       user_id: req.params.user_id,
       trip_start: req.body.trip_start,
@@ -108,7 +108,7 @@ module.exports = (knex) => {
     .then((tripId) => {
       console.log(tripId)
       knex('days')
-      // .returning('id')
+      .returning('id')
       .insert({
         trip_id: tripId[0],
         date: '11/04/2016',

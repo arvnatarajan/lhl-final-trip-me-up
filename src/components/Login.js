@@ -44,7 +44,7 @@ class Login extends React.Component {
             />
           </span>
           <button className="login-button col" onClick={this.handleClick}>
-            <i className="fa fa-sign-in fa-2x" aria-hidden="true"></i>
+            <i className="fa fa-sign-in fa-2x fa-inverse" aria-hidden="true"></i>
           </button>
 
           {errorMessage &&

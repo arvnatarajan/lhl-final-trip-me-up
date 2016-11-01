@@ -31,9 +31,6 @@ input[type=password] {
   height: 120px;
   width: 100%;
 
-  .sign-in{
-    background-color: #1A2930;
-    color: #F5F5F5;
 
   .title {
     padding: 20px 20px 15px 50px;
@@ -59,8 +56,8 @@ input[type=password] {
       margin: 0 0 10px 10px;
       width: 50px;
       height: 30px;
-      color: #1A2930;
-      background-color: #F5F5F5;
+      color: #F5F5F5;
+      background-color: #1A2930;
       border: none;
     }
   }
@@ -70,8 +67,8 @@ input[type=password] {
     align-items: flex-end;
 
     .logout-button {
-      color: #1A2930;
-      background-color: #F5F5F5;
+      color: #F5F5F5;
+      background-color: #1A2930;
       border: none;
       margin-right: 25px;
       margin-top: 30px;

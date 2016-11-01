@@ -78,11 +78,11 @@ class User extends React.Component {
   render() {
     const { trips, user, modalID } = this.props
     return (
-      <div>
+      <div className="user-page">
         <div>
           <NotificationSystem ref="notificationSystem" />
         </div>
-        <button className="new-trip-form"
+        <button className="new-trip-button"
             onClick={this.openNewTripForm}
           >Create your next trip!
         </button>

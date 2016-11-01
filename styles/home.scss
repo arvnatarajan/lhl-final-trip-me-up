@@ -127,8 +127,21 @@ body {
     }
 }
 
-.new-trip-form {
-  
+.user-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .new-trip-button {
+    width: 200px;
+    height: 60px;
+    margin: 30px auto 10px auto;
+    background-color: #1A2930;
+    color: #F5F5F5;
+    border: none;
+    font-size: 20px;
+  }
+
 }
 
 

@@ -11,7 +11,7 @@ class InviteFriend extends React.Component {
   handleClick = () => {
     const name = this.refs.friend
     const notification_type = 'invitation'
-    const notification_message = 'has invited you to join their trip'
+    const notification_message = 'Tintin has invited you to join their trip'
     const deets = {
       name: name.value,
       notification_type: notification_type,
@@ -21,7 +21,7 @@ class InviteFriend extends React.Component {
     this.props.onInviteClick(deets)
 
     this._notificationSystem.addNotification({
-      message: 'You\'ve tripped up a friend!',
+      message: 'You\'ve tripped up Dora!',
       level: 'success'
     });
 
@@ -36,14 +36,15 @@ class InviteFriend extends React.Component {
     return (
       <div className="invite-friend">
         <span className="col">
-          <p>Invite your friend to your trip!</p>
           <input
+            style={{"textAlign": "center"}}
             type="text"
+            placeholder="Trip up a friend"
             ref="friend"
           />
         </span>
         <button onClick={this.handleClick} >
-        Invite!
+          <i className="fa fa-share-square-o" aria-hidden="true"></i>
         </button>
         <div>
           <NotificationSystem ref="notificationSystem" />

@@ -52,15 +52,29 @@ class Trip extends React.Component {
     const { days, events } = this.props
     return(
       <div>
-        <Link to={"map/" + this.props.params.trip_id}> Map </Link>
-        <InviteFriend onInvite={ () => this.props.invitedFriendNotification() } onInviteClick={ deets => this.props.sendFriendInvite(deets) }/>
+        <div className="sub-nav">
+          <Link to={"map/" + this.props.params.trip_id}>
+            <i className="fa fa-map-marker fa-3x" aria-hidden="true"></i>
+          </Link>
+          <Link to={"map/" + this.props.params.trip_id}>
+            <i className="fa fa-bed fa-3x" aria-hidden="true"></i>
+          </Link>
+          <InviteFriend onInvite={ () => this.props.invitedFriendNotification() } onInviteClick={ deets => this.props.sendFriendInvite(deets) }/>
+          <Link to={"map/" + this.props.params.trip_id}>
+            <i className="fa fa-plane fa-3x" aria-hidden="true"></i>
+          </Link>
+          <Link to={"map/" + this.props.params.trip_id}>
+            <i className="fa fa-cutlery fa-3x" aria-hidden="true"></i>
+          </Link>
+        </div>
 
         <TripDays
           days={days ? days : [{title: 'Loading..'}]}
           events={events ? events : [{title: 'Loading..'}]}
         />
-        <button className="add-day-button" type="button" onClick={this.handleAddDay}>+ Day</button>
-
+        <div className="one-trip-page">
+          <button className="add-day-button" type="button" onClick={this.handleAddDay}>+ Day</button>
+        </div>
       </div>
     )
   }

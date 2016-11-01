@@ -38,7 +38,7 @@ class Login extends React.Component {
           <span className="col">
             <p>Password</p>
             <input
-              type="text"
+              type="password"
               ref="password"
               placeholder="Password"
             />

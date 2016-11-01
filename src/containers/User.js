@@ -86,7 +86,7 @@ class User extends React.Component {
             onClick={this.openNewTripForm}
           >Create your next trip!
         </button>
-        <Modal show={ localStorage.getItem('user_id') === this.props.modalID  } onHide={this.closeNewTripForm} bsSize="small" aria-labelledby="contained-modal-title-lg">
+        <Modal dialogClassName="new-trip-modal" show={ localStorage.getItem('user_id') === this.props.modalID  } onHide={this.closeNewTripForm} bsSize="small" aria-labelledby="contained-modal-title-lg">
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-lg">Start planning your next trip!</Modal.Title>
           </Modal.Header>
@@ -96,8 +96,6 @@ class User extends React.Component {
               user={user ? user : [ 'status': 'Please log in!' ]}
             />
           </Modal.Body>
-          <Modal.Footer>
-          </Modal.Footer>
         </Modal>
         <UserTrips trips={trips ? trips : [{title: 'Loading..'}]}/>
       </div>

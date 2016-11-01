@@ -51,7 +51,7 @@ class Trip extends React.Component {
   render(){
     const { days, events } = this.props
     return(
-      <div>
+      <div className="trip-page">
         <Link to={"map/" + this.props.params.trip_id}> Map </Link>
         <InviteFriend onInvite={ () => this.props.invitedFriendNotification() } onInviteClick={ deets => this.props.sendFriendInvite(deets) }/>
 

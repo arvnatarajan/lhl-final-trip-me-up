@@ -50,18 +50,16 @@ class DayEvents extends React.Component {
     return (
       <div className={newClassName} >
 
-      <Button
-        bsStyle="primary"
-        bsSize="small"
+      <button
         className="event-new-trip-button"
         onClick={this.openNewEventForm}
-        >Add a new activity!
-      </Button>
+        >add new activity
+      </button>
 
       <Modal
         show={ this.props.day.id === this.props.modalID }
-        onHide={this.closeNewEventForm} bsSize="large"
-        aria-labelledby="contained-modal-title-lg"
+        onHide={this.closeNewEventForm}
+        dialogClassName="new-trip-modal"
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-lg">Add a new event</Modal.Title>

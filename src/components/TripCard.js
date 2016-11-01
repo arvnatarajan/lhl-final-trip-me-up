@@ -16,10 +16,8 @@ const TripCard = ({ trip, index }) => {
             <h1>{trip.trip_start_location}</h1>
             <div>to</div>
             <h1>{trip.trip_destination}</h1>
-            <div>{tripStart}  -  {tripEnd}</div>
+            <div className="trip-dates">{tripStart}  -  {tripEnd}</div>
           </div>
-          <footer className="trip-card-footer">
-          </footer>
         </div>
       </div>
     </Link>

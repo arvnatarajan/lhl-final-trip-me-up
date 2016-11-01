@@ -162,7 +162,8 @@ body {
 
 input {
   padding: 3px;
-  color: black;
+  height: 26px;
+  color: #1A2930;
 }
 
 .trips-container {
@@ -177,13 +178,13 @@ input {
   background-color: white;
   margin: 20px;
   width: 301px;
-  height: 500px;
+  height: 450px;
 
   .trip-card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 500px;
+    height: 450px;
 
     .trip-card-header {
       width: 100%;
@@ -195,17 +196,22 @@ input {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 300px;
+      justify-content: center;
+      height: 250px;
+      padding-bottom: 15px;
+      color: #1A2930;
+
+      .trip-dates {
+        padding-top: 20px;
+      }
     }
 
     .trip-card-footer {
-      height: 40px;
-      padding: 5px;
     }
   }
 }
 
-.trip-card:hover {
+.trip-card:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
 }
 
@@ -301,6 +307,15 @@ input {
     .day-card-footer {
       align-self: flex-end;
       padding: 5px;
+
+      .show-events {
+        margin: 10px;
+        border: none;
+        background-color: #1A2930;
+        color: #F5F5F5;
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 }
@@ -324,6 +339,10 @@ input {
 
   .event-new-trip-button {
     margin: 10px;
+    border: none;
+    background-color: #1A2930;
+    color: #F5F5F5;
+    width: 100px;
   }
 
   .event-card {
@@ -361,11 +380,11 @@ input {
   width: 330px;
 }
 
-.new-trip-form-container {
+.form-container {
   display: flex;
   flex-direction: column;
 
-  .new-trip-form {
+  .form {
     display: flex;
     justify-content: flex-start;
     padding: 0;
@@ -403,7 +422,7 @@ input {
       }
     }
   }
-  .new-trip-submit {
+  .submit {
     border: none;
     background-color: #1A2930;
     color: #F5F5F5;

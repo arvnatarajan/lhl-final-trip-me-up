@@ -9,28 +9,24 @@ class NewEventForm extends Component {
   render(){
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="event_title">Event title</label>
-          <Field name="event_title" component="input" type="text"/>
+      <form className="form-container" onSubmit={handleSubmit}>
+        <div className="form">
+          <div className="labels">
+            <label htmlFor="event_title label">Event title</label>
+            <label htmlFor="event_description label">Event Description</label>
+            <label htmlFor="event_start label">Event Start Time</label>
+            <label htmlFor="event_end label">Event End</label>
+            <label htmlFor="event_type label">Event Type</label>
+          </div>
+          <div className="boxes">
+          <Field name="event_title box" component="input" type="text"/>
+          <Field name="event_description box" component="input" type="text"/>
+          <Field name="event_start box" component="input" type="text"/>
+          <Field name="event_end box" component="input" type="text"/>
+          <Field name="event_type box" component="input" type="text"/>
+          </div>
         </div>
-        <div>
-          <label htmlFor="event_description">Event Description</label>
-          <Field name="event_description" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="event_start">Event Start Time</label>
-          <Field name="event_start" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="event_end">Event End</label>
-          <Field name="event_end" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="event_type">Event Type</label>
-          <Field name="event_type" component="input" type="text"/>
-        </div>
-        <button type="submit">Submit</button>
+        <button className="submit" type="submit">Submit</button>
       </form>
     )
   }

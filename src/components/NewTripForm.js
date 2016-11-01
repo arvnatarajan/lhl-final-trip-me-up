@@ -9,8 +9,8 @@ class NewTripForm extends Component {
   render(){
     const { handleSubmit } = this.props;
     return (
-      <form className="new-trip-form-container" onSubmit={handleSubmit}>
-        <div className="new-trip-form">
+      <form className="form-container" onSubmit={handleSubmit}>
+        <div className="form">
           <div className="labels">
             <label className="trip-title label">Trip title</label>
             <label htmlFor="trip_start" className="trip-start label">Trip Start</label>
@@ -26,7 +26,7 @@ class NewTripForm extends Component {
             <Field name="destination" className="destination box" component="input" type="text"/>
           </div>
         </div>
-        <button className="new-trip-submit" type="submit">Submit</button>
+        <button className="submit" type="submit">Submit</button>
       </form>
     )
   }

@@ -51,7 +51,7 @@ class DayCard extends React.Component {
           </div>
 
           <footer className="day-card-footer">
-            <button type="button" onClick={this.handleShowEvents}>...</button>
+            <button className="show-events" type="button" onClick={this.handleShowEvents}>&#8681;</button>
           </footer>
 
         </div>

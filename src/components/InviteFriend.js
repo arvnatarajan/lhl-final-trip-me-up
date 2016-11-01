@@ -44,7 +44,7 @@ class InviteFriend extends React.Component {
           />
         </span>
         <button onClick={this.handleClick} >
-          <i className="fa fa-share-square-o" aria-hidden="true"></i>
+          <i className="fa fa-share-square-o sign-in" aria-hidden="true"></i>
         </button>
         <div>
           <NotificationSystem ref="notificationSystem" />

@@ -347,13 +347,16 @@ input {
   color: red;
 }
 
+.new-trip-modal {
+  width: 330px;
+}
+
 .new-trip-form-container {
   display: flex;
   flex-direction: column;
 
   .new-trip-form {
     display: flex;
-    width: 200px;
     justify-content: flex-start;
     padding: 0;
 
@@ -361,7 +364,7 @@ input {
       display: flex;
       flex-direction: column;
       padding-bottom: 10px;
-      width: 250px;
+      width: 160px;
       justify-content: center;
 
       .label {

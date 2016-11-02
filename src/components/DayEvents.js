@@ -53,7 +53,7 @@ class DayEvents extends React.Component {
       <button
         className="event-new-trip-button"
         onClick={this.openNewEventForm}
-        >add new activity
+        >+
       </button>
 
       <Modal

@@ -1,7 +1,10 @@
+
 body {
   font-family: 'Dosis', sans-serif;
   margin: 0;
   background: linear-gradient(#FFFFFF, #F1F1F1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 100vh;
 }
 
@@ -11,7 +14,7 @@ body {
 }
 
 .active {
-  color: green;
+  color: #74BA98;
 }
 
 #react-root {
@@ -26,6 +29,7 @@ input {
 input[type=password] {
   background:#F9F9F9;
 }
+
 
 .nav {
   background-color: #1A2930;
@@ -119,9 +123,12 @@ input[type=password] {
       border-radius: 5px;
       padding: 5px;
       margin: 5px 0;
-      background-color: #8A807E;
+      background-color: #1A2930;
       color: #F5F5F5;
       border: none;
+    }
+    .signup-button:hover {
+      background-color: #74BA98;
     }
   }
 
@@ -155,6 +162,7 @@ input[type=password] {
   flex-direction: column;
 
   .new-trip-button {
+    border-radius: 5px;
     width: 200px;
     height: 50px;
     margin: 30px auto 10px auto;
@@ -162,6 +170,9 @@ input[type=password] {
     color: #F5F5F5;
     border: none;
     font-size: 20px;
+  }
+  .new-trip-button:hover {
+    background-color: #74BA98;
   }
 
 }
@@ -181,6 +192,7 @@ input {
 }
 
 .trip-card {
+  border-radius: 5px;
   border: 1px solid lightgrey;
   transition: 0.3s;
   background-color: white;
@@ -248,7 +260,18 @@ input {
   flex-direction: column;
 }
 
+.fa-nav {
+  transition: color 0.5s ease;
+  color:#aec6cf;
+}
+
+.fa-nav:hover {
+  color:#1e90ff;
+
+}
+
 .add-day-button {
+  border-radius: 5px;
   width: 200px;
   height: 50px;
   margin: 30px auto 10px auto;
@@ -258,7 +281,7 @@ input {
   font-size: 20px;
 }
 .add-day-button:hover {
-  background-color:#5cbf2a;
+  background-color:#74BA98;
 }
 .add-day-button:active {
   position:relative;
@@ -317,12 +340,16 @@ input {
       padding: 5px;
 
       .show-events {
+        border-radius: 2px;
         margin: 10px;
         border: none;
-        background-color: #1A2930;
-        color: #F5F5F5;
+        background-color: #F1F1F1;
+        color: #1A2930;
         width: 30px;
         height: 30px;
+      }
+      .show-events:hover {
+        background-color: #74BA98;
       }
     }
   }
@@ -346,11 +373,13 @@ input {
   transition: all 1s transform ease;
 
   .event-new-trip-button {
+    border-radius: 2px;
     margin: 10px;
     border: none;
-    background-color: #1A2930;
-    color: #F5F5F5;
-    width: 100px;
+    color: #1A2930;
+  }
+  .event-new-trip-button:hover {
+    background-color: #74BA98;
   }
 
   .event-card {

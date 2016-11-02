@@ -54,17 +54,17 @@ class Trip extends React.Component {
       <div className="trip-page">
         <div className="sub-nav">
           <Link to={"map/" + this.props.params.trip_id}>
-            <i className="fa fa-map-marker fa-3x" aria-hidden="true"></i>
+            <i className="fa fa-map-marker fa-nav fa-3x" aria-hidden="true"></i>
           </Link>
           <Link to={"map/" + this.props.params.trip_id}>
-            <i className="fa fa-bed fa-3x" aria-hidden="true"></i>
+            <i className="fa fa-bed fa-nav fa-3x" aria-hidden="true"></i>
           </Link>
           <InviteFriend onInvite={ () => this.props.invitedFriendNotification() } onInviteClick={ deets => this.props.sendFriendInvite(deets) }/>
           <Link to={"map/" + this.props.params.trip_id}>
-            <i className="fa fa-plane fa-3x" aria-hidden="true"></i>
+            <i className="fa fa-plane fa-nav fa-3x" aria-hidden="true"></i>
           </Link>
           <Link to={"map/" + this.props.params.trip_id}>
-            <i className="fa fa-cutlery fa-3x" aria-hidden="true"></i>
+            <i className="fa fa-cutlery fa-nav fa-3x" aria-hidden="true"></i>
           </Link>
         </div>
 

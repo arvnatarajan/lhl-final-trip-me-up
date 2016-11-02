@@ -34,7 +34,7 @@ export function fetchEvents(trip_id) {
   return function (dispatch) {
     dispatch(requestEvents())
 
-    return fetch(`http://localhost:8080/api/users/1/trips/${trip_id}/events`)
+    return fetch(`http://localhost:8080/api/users/${localStorage.getItem('user_id')}/trips/${trip_id}/events`)
       .then(response => response.json())
       .then(response => {
         dispatch(receiveEvents(response))

@@ -5,8 +5,8 @@ const EventCard = ({ event, del, deletedEvent }) => {
   return (
     <div className="event-card" >
       <div className="event-details">
-        <div className="event-type">{event.event_type}</div> |
-        <div className="event-title">{event.event_title}</div> | 
+        <div className="event-type">{event.start_time}</div>
+        <div className="event-title">{event.event_title}</div>
         <div className="event-description">{event.event_description}</div>
         <button className="event-delete" onClick= {() => { del(event.id) } } > delete </button>
       </div>

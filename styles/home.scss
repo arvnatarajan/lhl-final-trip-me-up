@@ -1,7 +1,7 @@
 body {
   font-family: 'Dosis', sans-serif;
   margin: 0;
-  background-color: #F5F5F5;
+  background-color: #EBE3E0;
 }
 
 * {
@@ -17,24 +17,26 @@ body {
   width: 100%;
 }
 
+input[type=password] {
+  background:#F9F9F9;
+}
+
 .nav {
-  background-color: #1A2930;
+  background-color: #1352A2;
   color: #F5F5F5;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 120px;
+  height: 150px;
   width: 100%;
 
-  .fa-globe {
-    padding-left: 25px;
-  }
 
   .title {
     padding: 20px 20px 15px 50px;
     width: 67%;
-    font-size: 40px;
+    font-size: 60px;
     font-weight: bold;
+    font-color: #EBE3E0;
   }
 
   .login {
@@ -54,37 +56,34 @@ body {
       margin: 0 0 10px 10px;
       width: 50px;
       height: 30px;
-      color: #1A2930;
-      background-color: #F5F5F5;
+      background: transparent;
       border: none;
     }
   }
-  .logout {
-    width: 33%;
+
+  .side-nav-buttons {
+    width: 50%;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-content: center;
 
     .logout-button {
-      color: #1A2930;
-      background-color: #F5F5F5;
+      align-self: flex-end;
+      color: #F5F5F5;
+      background: transparent;
       border: none;
-      margin-right: 25px;
-      margin-top: 30px;
-      width: 50px;
-      height: 30px;
+      margin-right: 20px;
     }
 
     .back-to-trips {
-      margin-left: auto;
       align-self: flex-end;
-      color: #1A2930;
-      background-color: #F5F5F5;
+      color: #F5F5F5;
+      background: transparent;
       border: none;
-      margin-right: 15px;
-      margin-top: 30px;
-      width: 50px;
-      height: 30px;
+      margin-right: 20px;
+
     }
+
   }
 }
 
@@ -102,6 +101,7 @@ body {
 
     p {
       font-size: 30px;
+      color: #8A807E;
     }
 
     .signup-box {
@@ -112,7 +112,7 @@ body {
     .signup-button {
       padding: 5px;
       margin: 5px 0;
-      background-color: #1A2930;
+      background-color: #8A807E;
       color: #F5F5F5;
       border: none;
     }

@@ -46,7 +46,7 @@ class DayCard extends React.Component {
 
           <div className="day-card-details">
             <div className="day-card-dates">
-              <div>{date}</div>
+              <div style={{'fontSize':'20px'}} > {date}</div>
             </div>
           </div>
 

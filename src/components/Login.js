@@ -38,12 +38,13 @@ class Login extends React.Component {
           <span className="col">
             <p>Password</p>
             <input
-              type="text"
+              type="password"
               ref="password"
               placeholder="Password"
             />
           </span>
-          <button className="login-button col" onClick={this.handleClick}>login
+          <button className="login-button col" onClick={this.handleClick}>
+            <i className="fa fa-sign-in fa-2x fa-inverse" aria-hidden="true"></i>
           </button>
 
           {errorMessage &&

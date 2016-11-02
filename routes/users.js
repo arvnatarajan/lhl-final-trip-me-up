@@ -111,8 +111,8 @@ module.exports = (knex) => {
       .returning('id')
       .insert({
         trip_id: tripId[0],
-        date: '11/04/2016',
-        day_start_location: 'toronto'
+        date: req.body.trip_start,
+        day_start_location: req.body.trip_start_location
       })
       .then(() => {
         res.json(tripId)

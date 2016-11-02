@@ -12,18 +12,18 @@ class NewEventForm extends Component {
       <form className="form-container" onSubmit={handleSubmit}>
         <div className="form">
           <div className="labels">
-            <label htmlFor="event_title label">Event title</label>
-            <label htmlFor="event_description label">Event Description</label>
-            <label htmlFor="event_start label">Event Start Time</label>
-            <label htmlFor="event_end label">Event End</label>
-            <label htmlFor="event_type label">Event Type</label>
+            <label className="label" htmlFor="event_title">Event title</label>
+            <label className="label" htmlFor="event_description">Event Description</label>
+            <label className="label" htmlFor="event_start">Event Start Time</label>
+            <label className="label" htmlFor="event_end">Event End</label>
+            <label className="label" htmlFor="event_type">Event Type</label>
           </div>
           <div className="boxes">
-          <Field name="event_title box" component="input" type="text"/>
-          <Field name="event_description box" component="input" type="text"/>
-          <Field name="event_start box" component="input" type="text"/>
-          <Field name="event_end box" component="input" type="text"/>
-          <Field name="event_type box" component="input" type="text"/>
+            <Field className="box" name="event_title" component="input" type="text"/>
+            <Field className="box" name="event_description" component="input" type="text"/>
+            <Field className="box" name="event_start" component="input" type="text"/>
+            <Field className="box" name="event_end" component="input" type="text"/>
+            <Field className="box" name="event_type" component="input" type="text"/>
           </div>
         </div>
         <button className="submit" type="submit">Submit</button>

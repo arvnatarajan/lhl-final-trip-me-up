@@ -19,7 +19,7 @@ class Logout extends React.Component {
 
     return (
       <div className="logout">
-        <i class="fa fa-home fa-3x"></i>
+        <i className="fa fa-home fa-3x"></i>
         <button className="back-to-trips"
                 onClick={this.handleBack}
                   >

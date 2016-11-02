@@ -52,7 +52,7 @@ module.exports = (knex) => {
       .select("*")
       .from("trips")
       .where('user_id', u_id)
-      .orderBy('trip_start', 'desc')
+      .orderBy('trip_start', 'asc')
       .then((results) => {
         res.json(results);
     });
@@ -69,6 +69,7 @@ module.exports = (knex) => {
       .join('users', 'users.id', '=', 'trips.user_id')
       .where('user_id', u_id)
       .andWhere('trip_id', t_id)
+      .orderBy('date', 'asc')
       .then((results) => {
         res.json(results);
     });

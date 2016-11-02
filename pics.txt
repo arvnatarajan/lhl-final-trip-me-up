@@ -1,20 +1,20 @@
 amalfi
-update trips set trip_img_url = 'http://i65.tinypic.com/34i332x.jpg' where id = 8;
+update trips set trip_img_url = 'http://i65.tinypic.com/34i332x.jpg' where id = 9;
 
 greece
 update trips set trip_img_url = 'http://i64.tinypic.com/5dmipj.jpg' where id = 3;
 
 hawaii
-update trips set trip_img_url = 'http://i64.tinypic.com/2i8c4za.jpg' where id = 4;
+update trips set trip_img_url = 'http://i64.tinypic.com/2i8c4za.jpg' where id = 10;
 
 ny
 update trips set trip_img_url = 'http://i64.tinypic.com/2mq7wya.jpg' where id = 2;
 
 sf
-http://i67.tinypic.com/2qmp9ae.jpg
+update trips set trip_img_url = 'http://i67.tinypic.com/2qmp9ae.jpg' where id = 2;
 
 syd
-http://i65.tinypic.com/20ztbfc.jpg
+update trips set trip_img_url = 'http://i65.tinypic.com/20ztbfc.jpg' where id = 2;
 
 
 insert into events (day_id, start_time, end_time, event_title, event_description, event_type) values ('7', '10:00', '11:00', 'Event 1', 'Description 1', 'Flight');

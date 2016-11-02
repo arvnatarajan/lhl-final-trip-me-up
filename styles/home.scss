@@ -1,7 +1,8 @@
 body {
   font-family: 'Dosis', sans-serif;
   margin: 0;
-  background: linear-gradient(bottom, #E4E4E4 0%, #FFFFFF 100%);
+  background: linear-gradient(#FFFFFF, #F1F1F1);
+  height: 100vh;
 }
 
 * {
@@ -15,6 +16,11 @@ body {
 
 #react-root {
   width: 100%;
+}
+
+input {
+  border-radius: 2px;
+  border: 1px solid lightgrey;
 }
 
 input[type=password] {
@@ -110,6 +116,7 @@ input[type=password] {
     }
 
     .signup-button {
+      border-radius: 5px;
       padding: 5px;
       margin: 5px 0;
       background-color: #8A807E;

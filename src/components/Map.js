@@ -8,7 +8,7 @@ const MapAPI = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
     defaultZoom={3}
-    defaultCenter={{ lat: 41.8507300, lng: -87.6512600 }}
+    defaultCenter={{ lat: 43.645155, lng: -79.395253 }}
   >
   {props.directions && <DirectionsRenderer directions={props.directions} />}
   </GoogleMap>
@@ -19,7 +19,7 @@ const MapAPI = withGoogleMap(props => (
 export default class Map extends React.Component {
 
   state = {
-    origin: new google.maps.LatLng(41.8507300, -87.6512600),
+    origin: new google.maps.LatLng(43.645155, -79.395253),
     destination: new google.maps.LatLng(40.65, -73.95),
     directions: null
   }

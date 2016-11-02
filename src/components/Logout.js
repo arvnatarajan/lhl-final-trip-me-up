@@ -18,18 +18,23 @@ class Logout extends React.Component {
   render() {
 
     return (
-      <div className="logout">
-        <i class="fa fa-home fa-3x"></i>
+      <div className="logout-nav-buttons">
         <button className="back-to-trips"
                 onClick={this.handleBack}
                   >
-                  home
+
+          <i className="fa fa-home fa-inverse fa-2x"
+             aria-hidden="true"></i>
+
         </button>
 
         <button className="logout-button"
                 onClick={this.handleLogout}
                 >
-                logout
+          <i className="fa fa-sign-out fa-inverse fa-2x"
+             aria-hidden="true">
+
+             </i>
         </button>
       </div>
     )

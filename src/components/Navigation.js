@@ -7,7 +7,6 @@ import { Link } from 'react-router'
 const Navigation = ({ user, isAuthenticated, errorMessage, loginUser, logoutUser, fetchTrips, fetchNotifications }) => (
   <nav className="nav">
     <div className="title">trip me up</div>
-
     {!isAuthenticated &&
       <Login
         errorMessage={errorMessage}
@@ -20,7 +19,6 @@ const Navigation = ({ user, isAuthenticated, errorMessage, loginUser, logoutUser
     {isAuthenticated &&
       <Logout onLogoutClick={ () => logoutUser() } />
     }
-
   </nav>
 )
 
